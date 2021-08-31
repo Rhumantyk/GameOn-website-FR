@@ -115,7 +115,8 @@ main {
 
 }
 
-.modal-btn {
+.modal-btn /* Bouton "Je M'inscris" */
+{
   font-size: 145%;
   background: #fe142f;
   display: flex;
@@ -127,7 +128,8 @@ main {
   cursor: pointer;
 }
 
-.modal-btn:hover {
+.modal-btn:hover /* Bouton "Je M'inscris" */
+{
   background: #3876ac;
 }
 
@@ -157,7 +159,8 @@ main {
   font-size: 16px;
 }
 
-.bground {
+.bground /* Background du formumaire */
+{
   display: none;
   position: fixed;
   z-index: 1;
