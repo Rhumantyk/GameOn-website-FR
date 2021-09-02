@@ -15,6 +15,7 @@ function editNav() // Pourquoi en enlevant le else, rien ne change ? À quoi ser
 const modalbg = document.querySelector(".bground"); // Background du formulaire
 const modalBtn = document.querySelectorAll(".modal-btn"); // Bouton "Je M'inscris"
 const formData = document.querySelectorAll(".formData"); // Entrées (champs de texte/btn radio/checkbox) du formulaire.
+const modalCloseBtn = document.querySelectorAll(".close") // Bouton "X" de la modale
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // Pourquoi un eventlistener ici au lieu d'une fonction classique ?
@@ -27,10 +28,22 @@ function launchModal()
 
 
 // Fermer la modale via le btn "X"
-document.getElementById("closMyModal").addEventListener("click",function(event)
+
+// Tentative 1
+// document.getElementById("closMyModal").addEventListener("click",function(event)
+// {
+//   document.getElementsByClassName("content")[0].style.display = "none"; // Ferme la modale. [0] pointe le premier de la liste donc ?
+//   document.getElementsByClassName("bground")[0].style.backgroundColor = "rgba(26, 39, 156, 0)"; // Supprime le background-color présent via rgba (Alpha ici)
+//   document.getElementsByClassName("bground")[0].style.position = "unset"; // Permet de rendre la page clicable (retire complètement la modale). Mais le btn cible ne réagit plus
+//   // Puis relancer le process --> Ne fonctionne pas.
+//   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// }
+// );
+
+// Tentaive 2
+modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+
+function closeModal()
 {
-  document.getElementsByClassName("content")[0].style.display = "none"; // Ferme la modale. [0] pointe le premier de la liste donc ?
-  document.getElementsByClassName("bground")[0].style.backgroundColor = "rgba(26, 39, 156, 0)"; // Supprime le background-color
-  document.getElementsByClassName("bground")[0].style.position = "unset"; // Permet de rendre la page clicable (retire complètement la modale)
+  modalbg.classList.add("close");
 }
-);
