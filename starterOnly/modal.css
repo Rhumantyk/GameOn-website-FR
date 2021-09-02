@@ -186,8 +186,8 @@ main {
   padding-top: 10px;
 }
 
-.contentClose /* Tentative animation fermeture modal */
-{
+/* .contentClose Tentative animation fermeture modal */
+/* {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -199,7 +199,7 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
-}
+} */
 
 .modal-body {
   padding: 15px 8%;
@@ -552,7 +552,6 @@ footer {
   from
   {
     opacity: 1;
-    
   }
   to
   {

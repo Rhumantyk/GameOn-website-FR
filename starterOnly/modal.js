@@ -29,21 +29,9 @@ function launchModal()
 
 // Exercice 1 Fermer la modale via le btn "X"
 
-// Tentative 1
-// document.getElementById("closMyModal").addEventListener("click",function(event)
-// {
-//   document.getElementsByClassName("content")[0].style.display = "none"; // Ferme la modale. [0] pointe le premier de la liste donc ?
-//   document.getElementsByClassName("bground")[0].style.backgroundColor = "rgba(26, 39, 156, 0)"; // Supprime le background-color présent via rgba (Alpha ici)
-//   document.getElementsByClassName("bground")[0].style.position = "unset"; // Permet de rendre la page clicable (retire complètement la modale). Mais le btn cible ne réagit plus
-//   // Puis relancer le process --> Ne fonctionne pas.
-//   modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-// }
-// );
-
-// Tentative 2
 // Close  modal form
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
-let contentAnimationClose = document.getElementById("content"); // Tentative d'animation retour sur fermeture de la modale.
+// let contentAnimationClose = document.getElementById("content"); // Tentative d'animation retour sur fermeture de la modale.
 
 // Close modal event
 function closeModal() // Fermeture modal
@@ -51,15 +39,18 @@ function closeModal() // Fermeture modal
   modalbg.style.display = "none";
 }
 
-function closeAnimationModal() // Animation fermeture modal
+// Animation fermeture modal ------------------ Echec
+function closeAnimationModal()
 {
-  if (closeModal)
+  let contentAnimationClose = document.getElementById("content");
+
+  if (launchModal)
   {
-    contentAnimationClose.className = "contentClose";
+    contentAnimationClose.style.animationName = "modalopen";
   }
-  else if (launchModal)
+  else if (closeModal)
   {
-    contentAnimationClose.className = "content";
+    contentAnimationClose.style.animationName = "modalclose";
   }
 }
 
