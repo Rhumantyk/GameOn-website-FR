@@ -12,10 +12,10 @@ function editNav() // Pourquoi en enlevant le else, rien ne change ? À quoi ser
 }
 
 // DOM Elements
-const modalbg = document.querySelector(".bground"); // Background du formulaire
-const modalBtn = document.querySelectorAll(".modal-btn"); // Bouton "Je M'inscris"
-const formData = document.querySelectorAll(".formData"); // Entrées (champs de texte/btn radio/checkbox) du formulaire.
-const modalCloseBtn = document.querySelectorAll(".close") // Bouton "X" de la modale
+const modalbg = document.querySelector(".bground"); // Classe du background du formulaire
+const modalBtn = document.querySelectorAll(".modal-btn"); // Une des classes du bouton "Je M'inscris"
+const formData = document.querySelectorAll(".formData"); // Classes des entrées (champs de texte/btn radio/checkbox) du formulaire.
+const modalCloseBtn = document.querySelectorAll(".close") // classe du bouton "X" de la modale
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // Pourquoi un eventlistener ici au lieu d'une fonction classique ?
@@ -41,9 +41,9 @@ function launchModal()
 // );
 
 // Tentaive 2
-modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal));
+modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
 
 function closeModal()
 {
-  modalbg.classList.add("close");
+  modalbg.style.display = "none";
 }
