@@ -235,6 +235,8 @@ input[data-error]::after {
     font-size: 0.4em;
     color: red;
 } */
+
+/*Contenu des labels des btn radios/chackboxs */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
