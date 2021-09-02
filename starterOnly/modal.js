@@ -29,6 +29,7 @@ function launchModal()
 // Fermer la modale via le btn "X"
 document.getElementById("closMyModal").addEventListener("click",function(event)
 {
-  document.getElementsByClassName("content")[0].style.display = "none";
+  document.getElementsByClassName("content")[0].style.display = "none"; // Ferme la modale
+  document.getElementsByClassName("bground")[0].style.backgroundColor = "rgba(26, 39, 156, 0)"; // Supprime le background-color
 }
 );
