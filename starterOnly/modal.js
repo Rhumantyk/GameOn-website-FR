@@ -27,7 +27,7 @@ function launchModal()
 }
 
 
-// Fermer la modale via le btn "X"
+// Exercice 1 Fermer la modale via le btn "X"
 
 // Tentative 1
 // document.getElementById("closMyModal").addEventListener("click",function(event)
@@ -49,3 +49,29 @@ function closeModal()
 {
   modalbg.style.display = "none";
 }
+
+
+
+
+
+
+
+// Exercice 2 
+
+// Prénom : Minimum de 2 caractères / n'est pas vide
+// Variable locale
+let inputFailColor = document.getElementById("first");
+document.getElementById("first").addEventListener("change", function(event) // Évènement "change" = change la valeur du champ de formulaire
+{
+  if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
+  {
+    alert('Écrivez 2 caractères minimum !')
+    inputFailColor.style.backgroundColor = "red";
+  }
+  else
+  {
+    inputFailColor.style.backgroundColor = "white";
+    return true;
+  }
+}
+);
