@@ -309,7 +309,7 @@ input[data-error]::after {
   cursor: pointer;
   transform: scale(0.7);
 }
-.close:before,
+.close:before, /* Permet ici de créer les 2 barres du "X" */
 .close:after {
   position: absolute;
   left: 15px;

@@ -1,4 +1,4 @@
-function editNav() // Besoin d'explications là
+function editNav() // Pourquoi en enlevant le else, rien ne change ? À quoi sert le else ici ?
 {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav")
@@ -26,3 +26,9 @@ function launchModal()
 }
 
 
+// Fermer la modale via le btn "X"
+document.getElementById("closMyModal").addEventListener("click",function(event)
+{
+  document.getElementsByClassName("content")[0].style.display = "none";
+}
+);
