@@ -31,5 +31,6 @@ document.getElementById("closMyModal").addEventListener("click",function(event)
 {
   document.getElementsByClassName("content")[0].style.display = "none"; // Ferme la modale. [0] pointe le premier de la liste donc ?
   document.getElementsByClassName("bground")[0].style.backgroundColor = "rgba(26, 39, 156, 0)"; // Supprime le background-color
+  document.getElementsByClassName("bground")[0].style.position = "unset"; // Permet de rendre la page clicable (retire complètement la modale)
 }
 );
