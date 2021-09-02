@@ -40,9 +40,11 @@ function launchModal()
 // }
 // );
 
-// Tentaive 2
+// Tentative 2
+// Close  modal form
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
 
+// Close modal event
 function closeModal()
 {
   modalbg.style.display = "none";
