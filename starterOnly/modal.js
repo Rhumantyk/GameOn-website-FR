@@ -43,25 +43,57 @@ function launchModal()
 // Tentative 2
 // Close  modal form
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
+let contentAnimationClose = document.getElementById("content"); // Tentative d'animation retour sur fermeture de la modale.
 
 // Close modal event
-function closeModal()
+function closeModal() // Fermeture modal
 {
   modalbg.style.display = "none";
 }
 
+function closeAnimationModal() // Animation fermeture modal
+{
+  if (closeModal)
+  {
+    contentAnimationClose.className = "contentClose";
+  }
+  else if (launchModal)
+  {
+    contentAnimationClose.className = "content";
+  }
+}
 
 
+  // contentAnimationClose.classList.add("contentClose");
+  // if (closeModal)
+  // {
+  //   // contentAnimationClose.className = "content";
+  //   contentAnimationClose.classList.add("contentClose");
+  //   contentAnimationClose.classList.remove("content");
+  // }
+  // else if ()
+  // {
+  //   contentAnimationClose.classList.remove("contentClose");
+  //   contentAnimationClose.classList.add("content");
+  // }
 
+    // if(closeModal)
+  // {
+  //   document.getElementsByClassName("content")[0].style.animationName = "modalclose";
+  // }
+  // else if(launchModal)
+  // {
+  //   document.getElementsByClassName("content")[0].style.animationName = "modalopen";
+  // }
 
 
 
 // Exercice 2 
 
-// Prénom : Minimum de 2 caractères / n'est pas vide
+// Prénom : Minimum de 2 caractères + n'est pas vide
 // Variable locale
 let inputFailColor = document.getElementById("first");
-document.getElementById("first").addEventListener("change", function(event) // Évènement "change" = change la valeur du champ de formulaire
+inputFailColor.addEventListener("change", function(event) // Évènement "change" = change la valeur du champ de formulaire
 {
   if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
   {
