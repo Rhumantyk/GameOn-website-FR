@@ -31,7 +31,6 @@ function launchModal()
 
 // Close  modal form
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
-// let contentAnimationClose = document.getElementById("content"); // Tentative d'animation retour sur fermeture de la modale.
 
 // Close modal event
 function closeModal() // Fermeture modal
@@ -54,7 +53,6 @@ function closeAnimationModal()
     contentAnimationClose.style.animationName = "modalclose";
   }
 }
-
 
 
 // Exercice 2 
@@ -98,3 +96,35 @@ La deuxième itéation permet de mettre autant de champs de saisie que l'on souh
 //   }
 // }
 // );
+
+
+
+
+
+
+
+// Exercice 3
+
+// Adresse email valide
+
+const email = document.querySelector('.email');
+const form = document.querySelector('.form');
+const emailMessage = document.querySelector('.empty-email-message');
+const errorEmail = document.querySelector('.invalid-email-message');
+
+form.addEventListener('submit', element => {
+    if(email.value){
+    const regexMatch = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value);
+    if (regexMatch) {
+          errorEmail.textContent = '';
+        } else {
+          element.preventDefault();
+          errorEmail.textContent = 'email is invalid';
+          emailMessage.textContent = "";
+        }
+    } else {
+      element.preventDefault();
+      emailMessage.textContent = 'You must type in an email';
+      errorEmail.textContent = "";
+    }
+});
