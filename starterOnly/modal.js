@@ -39,7 +39,8 @@ function closeModal() // Fermeture modal
   modalbg.style.display = "none";
 }
 
-// Animation fermeture modal ------------------ Echec
+// Tentative optionnelle : Animation fermeture modal ------------------ Echec
+// Pourtant : https://www.w3schools.com/jsref/prop_style_animationname.asp
 function closeAnimationModal()
 {
   let contentAnimationClose = document.getElementById("content");
@@ -55,46 +56,45 @@ function closeAnimationModal()
 }
 
 
-  // contentAnimationClose.classList.add("contentClose");
-  // if (closeModal)
-  // {
-  //   // contentAnimationClose.className = "content";
-  //   contentAnimationClose.classList.add("contentClose");
-  //   contentAnimationClose.classList.remove("content");
-  // }
-  // else if ()
-  // {
-  //   contentAnimationClose.classList.remove("contentClose");
-  //   contentAnimationClose.classList.add("content");
-  // }
-
-    // if(closeModal)
-  // {
-  //   document.getElementsByClassName("content")[0].style.animationName = "modalclose";
-  // }
-  // else if(launchModal)
-  // {
-  //   document.getElementsByClassName("content")[0].style.animationName = "modalopen";
-  // }
-
-
 
 // Exercice 2 
 
-// Prénom : Minimum de 2 caractères + n'est pas vide
+// Prénom et Nom : Minimum de 2 caractères + n'est pas vide
 // Variable locale
-let inputFailColor = document.getElementById("first");
-inputFailColor.addEventListener("change", function(event) // Évènement "change" = change la valeur du champ de formulaire
+let wrongInputColor = document.querySelectorAll(".fl"); // getElementById("first") -- Fonctionne mais que un par un
+wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
 {
   if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
   {
     alert('Écrivez 2 caractères minimum !')
-    inputFailColor.style.backgroundColor = "red";
+    wrongInputColor.style.backgroundColor = "red";
   }
   else
   {
-    inputFailColor.style.backgroundColor = "white";
-    return true;
+    wrongInputColor.style.backgroundColor = "white";
+    return true; // Semble non obligatoire, fonctionne sans
   }
-}
-);
+})
+});
+
+/* 
+Première itération pour "Prénom et Nom".
+Fonctionne parfaitement, mais il faut copier/coller le code en faisant de petites modifications pour chaque
+champs de saisie.
+La deuxième itéation permet de mettre autant de champs de saisie que l'on souhaite pour une même application.
+*/
+// let inputFailColor = document.getElementById("first");
+// inputFailColor.addEventListener("change", function(event) // Évènement "change" = change la valeur du champ de formulaire
+// {
+//   if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
+//   {
+//     alert('Écrivez 2 caractères minimum !')
+//     inputFailColor.style.backgroundColor = "red";
+//   }
+//   else
+//   {
+//     inputFailColor.style.backgroundColor = "white";
+//     return true; // Semble non obligatoire, fonctionne sans
+//   }
+// }
+// );
