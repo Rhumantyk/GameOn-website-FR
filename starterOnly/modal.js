@@ -55,6 +55,9 @@ function closeAnimationModal()
 }
 
 
+
+
+
 // Exercice 2 
 
 // Prénom et Nom : Minimum de 2 caractères + n'est pas vide
@@ -64,7 +67,6 @@ wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("ch
 {
   if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
   {
-    alert('Écrivez 2 caractères minimum !')
     wrongInputColor.style.backgroundColor = "red";
   }
   else
@@ -75,27 +77,12 @@ wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("ch
 })
 });
 
-/* 
-Première itération pour "Prénom et Nom".
-Fonctionne parfaitement, mais il faut copier/coller le code en faisant de petites modifications pour chaque
-champs de saisie.
-La deuxième itéation permet de mettre autant de champs de saisie que l'on souhaite pour une même application.
-*/
-// let inputFailColor = document.getElementById("first");
-// inputFailColor.addEventListener("change", function(event) // Évènement "change" = change la valeur du champ de formulaire
+
+
+// function wrongInputText() // Tentative d'ajouts innerHTML en dessous de nom et prénom
 // {
-//   if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
-//   {
-//     alert('Écrivez 2 caractères minimum !')
-//     inputFailColor.style.backgroundColor = "red";
-//   }
-//   else
-//   {
-//     inputFailColor.style.backgroundColor = "white";
-//     return true; // Semble non obligatoire, fonctionne sans
-//   }
+
 // }
-// );
 
 
 
@@ -118,14 +105,12 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 {
   if(email.value.match(validRegex))
   {
-    alert('Adresse mail valide')
     wrongInputColorEmail.style.backgroundColor = "white";
   }
   else
   {
     wrongInputColorEmail.style.backgroundColor = "red";
-    emailWrong.innerHTML = "email@exemple.com";
-    alert('Adresse email invalide')
+    emailWrong.innerHTML = "Adresse email invalide </br> Exemple: email@exemple.com";
   }
 }
 )
