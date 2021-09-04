@@ -110,6 +110,9 @@ La deuxième itéation permet de mettre autant de champs de saisie que l'on souh
 // Test
 let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // getElementById("first") -- Fonctionne mais que un par un
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+let emailWrite = document.getElementById(email);
+let emailWrong = document.querySelector(".emailWrong");
+emailWrong.innerHTML = '';
 
 wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
 {
@@ -121,7 +124,8 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   else
   {
     wrongInputColorEmail.style.backgroundColor = "red";
-    // return true; // Semble non obligatoire, fonctionne sans
+    emailWrong.innerHTML = "email@exemple.com";
+    alert('Adresse email invalide')
   }
 }
 )
