@@ -107,24 +107,23 @@ La deuxième itéation permet de mettre autant de champs de saisie que l'on souh
 
 // Adresse email valide
 
-const email = document.querySelector('.email');
-const form = document.querySelector('.form');
-const emailMessage = document.querySelector('.empty-email-message');
-const errorEmail = document.querySelector('.invalid-email-message');
+// Test
+let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // getElementById("first") -- Fonctionne mais que un par un
+let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
-form.addEventListener('submit', element => {
-    if(email.value){
-    const regexMatch = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email.value);
-    if (regexMatch) {
-          errorEmail.textContent = '';
-        } else {
-          element.preventDefault();
-          errorEmail.textContent = 'email is invalid';
-          emailMessage.textContent = "";
-        }
-    } else {
-      element.preventDefault();
-      emailMessage.textContent = 'You must type in an email';
-      errorEmail.textContent = "";
-    }
-});
+wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
+{
+  if(email.value.match(validRegex))
+  {
+    alert('Adresse mail valide')
+    wrongInputColorEmail.style.backgroundColor = "white";
+  }
+  else
+  {
+    wrongInputColorEmail.style.backgroundColor = "red";
+    // return true; // Semble non obligatoire, fonctionne sans
+  }
+}
+)
+}
+);
