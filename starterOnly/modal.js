@@ -59,19 +59,61 @@ function closeAnimationModal()
 
 
 // Exercice 2 
-
 // Prénom et Nom : Minimum de 2 caractères + n'est pas vide
+
 // Variable locale
-let wrongInputColor = document.querySelectorAll(".fl"); // getElementById("first") -- Fonctionne mais que un par un
-wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
+// let wrongInputColor = document.querySelectorAll(".fl"); // getElementById("first") -- Fonctionne mais que un par un
+// wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
+// {
+//   if(first.value.length < 2 | first.value.length == "") // "first/last" peuvent être remplacé par "this"
+//   {
+//     wrongInputColor.style.backgroundColor = "red";
+//   }
+//   if(last.value.length < 2 | last.value.length == "")
+//   {
+//     wrongInputColor.style.backgroundColor = "red"
+//   }
+//   else
+//   {
+//     wrongInputColor.style.backgroundColor = "white";
+//     return true; // Semble non obligatoire, fonctionne sans
+//   }
+// })
+// });
+
+let firstInputColor = document.querySelectorAll(".first");
+let firstText = document.querySelector(".fWrong");
+firstText.innerHTML = '';
+firstInputColor.forEach(firstInputColor => {firstInputColor.addEventListener("change", event =>
 {
-  if(first.value.length < 2 | first.value.length == "") // "first" peut être remplacé par "this"
+  if(first.value.length < 2 | first.value.length == "") // "first/last" peuvent être remplacé par "this"
   {
-    wrongInputColor.style.backgroundColor = "red";
+    firstInputColor.style.backgroundColor = "red";
+    firstText.innerHTML = "2 caractères minimum sont requis";
   }
   else
   {
-    wrongInputColor.style.backgroundColor = "white";
+    firstInputColor.style.backgroundColor = "white";
+    firstText.innerHTML = '';
+    return true; // Semble non obligatoire, fonctionne sans
+  }
+})
+});
+
+let lastInputColor = document.querySelectorAll(".last");
+let lastText = document.querySelector(".lWrong");
+lastText.innerHTML = '';
+lastInputColor.forEach(lastInputColor => {lastInputColor.addEventListener("change", event =>
+{
+  if(last.value.length < 2 | last.value.length == "") // "first/last" peuvent être remplacé par "this"
+  {
+    lastInputColor.style.backgroundColor = "red";
+    lastText.innerHTML = "2 caractères minimum sont requis";
+  }
+  else
+  {
+    lastInputColor.style.backgroundColor = "white";
+    lastText.innerHTML = '';
     return true; // Semble non obligatoire, fonctionne sans
   }
 })
@@ -79,9 +121,39 @@ wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("ch
 
 
 
-// function wrongInputText() // Tentative d'ajouts innerHTML en dessous de nom et prénom
-// {
 
+// function firstWrong() // Remplacement non fonctionnel de la première technique qui fonctionne moyennement.
+// {
+//   // let first = document.getElementById("first");
+//   let classFirst = document.querySelectorAll(".first");
+//   let firstText = document.querySelectorAll(".fWrong");
+//   firstText.innerHTML = '';
+//   if(first.value.length < 2 | first.value.length == "")
+//   {
+//     classFirst.style.backgroundColor = "red";
+//     firstText.innerHTML = "2 caractères minimum sont requis";
+//   }
+//   else
+//   {
+//     classFirst.style.backgroundColor = "white";
+//   }
+// }
+
+// function lastWrong()
+// {
+//   // let lastInputColor = document.getElementById("last");
+//   let classLast = document.querySelectorAll(".last");
+//   let lastText = document.querySelectorAll(".lWrong");
+//   lastText.innerHTML = '';
+//   if(last.value.length < 2 | last.value.length == "")
+//   {
+//     classLast.style.backgroundColor = "red";
+//     lastText.innerHTML = "2 caractères minimum sont requis";
+//   }
+//   else
+//   {
+//     classLast.style.backgroundColor = "white";
+//   }
 // }
 
 
@@ -97,7 +169,6 @@ wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("ch
 // Test
 let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // getElementById("first") -- Fonctionne mais que un par un
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-let emailWrite = document.getElementById(email);
 let emailWrong = document.querySelector(".emailWrong");
 emailWrong.innerHTML = '';
 
@@ -110,7 +181,7 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   else
   {
     wrongInputColorEmail.style.backgroundColor = "red";
-    emailWrong.innerHTML = "Adresse email invalide </br> Exemple: email@exemple.com";
+    emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
   }
 }
 )
