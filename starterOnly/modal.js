@@ -61,26 +61,7 @@ function closeAnimationModal()
 // Exercice 2 
 // Prénom et Nom : Minimum de 2 caractères + n'est pas vide
 
-// Variable locale
-// let wrongInputColor = document.querySelectorAll(".fl"); // getElementById("first") -- Fonctionne mais que un par un
-// wrongInputColor.forEach(wrongInputColor => {wrongInputColor.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
-// {
-//   if(first.value.length < 2 | first.value.length == "") // "first/last" peuvent être remplacé par "this"
-//   {
-//     wrongInputColor.style.backgroundColor = "red";
-//   }
-//   if(last.value.length < 2 | last.value.length == "")
-//   {
-//     wrongInputColor.style.backgroundColor = "red"
-//   }
-//   else
-//   {
-//     wrongInputColor.style.backgroundColor = "white";
-//     return true; // Semble non obligatoire, fonctionne sans
-//   }
-// })
-// });
-
+// Prénom
 let firstInputColor = document.querySelectorAll(".first");
 let firstText = document.querySelector(".fWrong");
 firstText.innerHTML = '';
@@ -100,6 +81,7 @@ firstInputColor.forEach(firstInputColor => {firstInputColor.addEventListener("ch
 })
 });
 
+// Nom
 let lastInputColor = document.querySelectorAll(".last");
 let lastText = document.querySelector(".lWrong");
 lastText.innerHTML = '';
@@ -122,51 +104,13 @@ lastInputColor.forEach(lastInputColor => {lastInputColor.addEventListener("chang
 
 
 
-// function firstWrong() // Remplacement non fonctionnel de la première technique qui fonctionne moyennement.
-// {
-//   // let first = document.getElementById("first");
-//   let classFirst = document.querySelectorAll(".first");
-//   let firstText = document.querySelectorAll(".fWrong");
-//   firstText.innerHTML = '';
-//   if(first.value.length < 2 | first.value.length == "")
-//   {
-//     classFirst.style.backgroundColor = "red";
-//     firstText.innerHTML = "2 caractères minimum sont requis";
-//   }
-//   else
-//   {
-//     classFirst.style.backgroundColor = "white";
-//   }
-// }
-
-// function lastWrong()
-// {
-//   // let lastInputColor = document.getElementById("last");
-//   let classLast = document.querySelectorAll(".last");
-//   let lastText = document.querySelectorAll(".lWrong");
-//   lastText.innerHTML = '';
-//   if(last.value.length < 2 | last.value.length == "")
-//   {
-//     classLast.style.backgroundColor = "red";
-//     lastText.innerHTML = "2 caractères minimum sont requis";
-//   }
-//   else
-//   {
-//     classLast.style.backgroundColor = "white";
-//   }
-// }
-
-
-
-
 
 
 
 // Exercice 3
-
 // Adresse email valide
 
-// Test
+// Email
 let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // getElementById("first") -- Fonctionne mais que un par un
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let emailWrong = document.querySelector(".emailWrong");
@@ -183,7 +127,5 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
     wrongInputColorEmail.style.backgroundColor = "red";
     emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
   }
-}
-)
-}
-);
+})
+});
