@@ -142,6 +142,7 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 
 // Exercice 4
 // Nombre de concours --> Valeur numérique
+
 /* Pourquoi de base on a ces possibilités là ? Alors que dans HTML --> input type="number"
   "e";  ; "e(suite de chiffre aléatoire)"
   ",e"; ",e(suite de chiffre aléatoire)"
@@ -154,39 +155,46 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   etc ... (Opérateurs numériques aussi : *+-/)
 */
 
-// 
-
 // function checkNbr()
 // {
-//   let nbr = document.quantity.nbr.value; // name(HTML)=quantity.nbr.value
-//   if (isNaN(nbr))
+//   let regexNumbers = /^[0-9]+$/;
+//   let inputNumber = document.querySelectorAll(".numberValidation"); // input class
+//   let inputValue = document.querySelectorAll("input[name='quantityName']").value; // .name(input).value
+//   let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+//   nbrWrong.innerHTML = '';
+//   alert('test');
+//   if (inputValue.match(regexNumbers))
 //   {
-//     document.getElementById("nbrWrong").innerHTML="Entrez uniquement une valeur numérique";
-//     return false;
+//     console.log('test if');
+//     inputNumber.style.backgroundColor = "white";
+//     return true;
 //   }
 //   else
 //   {
-//     return true;
+//     nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
+//     inputNumber.style.backgroundColor = "red";
+//     return false;
 //   }
 // }
 
 let regexNumbers = /^[0-9]+$/;
-let quantityName = document.querySelectorAll(".quantityName"); // input name
-let quantity = quantityName.value; // .name(input).value
 let inputNumber = document.querySelectorAll(".numberValidation"); // input class
+let inputValue = document.querySelectorAll("input[name='quantityName']").value; // .name(input).value
 let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+nbrWrong.innerHTML = '';
 inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
 {
-  if(quantity.match(regexNumbers)) // (isNaN(quantity)) ou bien (quantity.match(regexNumbers))
+  if(inputValue.match(regexNumbers)) // (isNaN(quantity)) ou bien (quantity.match(regexNumbers)) ?
   {
-    nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
-    inputNumber.style.backgroundColor = "red";
-    // return false;
+    alert('test');
+    inputNumber.style.backgroundColor = "white";
+    return true;
   }
   else
   {
-    inputNumber.style.backgroundColor = "white";
-    // return true;
+    nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
+    inputNumber.style.backgroundColor = "red";
+    return false;
   }
 })
 });
