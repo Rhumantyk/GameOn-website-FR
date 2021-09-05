@@ -156,16 +156,37 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 
 // 
 
-function check()
+// function checkNbr()
+// {
+//   let nbr = document.quantity.nbr.value; // name(HTML)=quantity.nbr.value
+//   if (isNaN(nbr))
+//   {
+//     document.getElementById("nbrWrong").innerHTML="Entrez uniquement une valeur numérique";
+//     return false;
+//   }
+//   else
+//   {
+//     return true;
+//   }
+// }
+
+let regexNumbers = /^[0-9]+$/;
+let quantityName = document.querySelectorAll(".quantityName"); // input name
+let quantity = quantityName.value; // .name(input).value
+let inputNumber = document.querySelectorAll(".numberValidation"); // input class
+let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
 {
-  var nbr=document.quantity.nbr.value; // name(HTML)=quantity.nbr.value
-  if (isNaN(nbr))
+  if(quantity.match(regexNumbers)) // (isNaN(quantity)) ou bien (quantity.match(regexNumbers))
   {
-    document.getElementById("nbrWrong").innerHTML="Entrez uniquement une valeur numérique";
-    return false;
+    nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
+    inputNumber.style.backgroundColor = "red";
+    // return false;
   }
   else
   {
-    return true;
+    inputNumber.style.backgroundColor = "white";
+    // return true;
   }
-}
+})
+});
