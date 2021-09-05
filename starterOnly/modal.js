@@ -142,7 +142,7 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 
 // Exercice 4
 // Nombre de concours --> Valeur numérique
-/* Pourquoi de base on a ces possibilités là ? Alors que dans HTML --> type = number
+/* Pourquoi de base on a ces possibilités là ? Alors que dans HTML --> input type="number"
   "e";  ; "e(suite de chiffre aléatoire)"
   ",e"; ",e(suite de chiffre aléatoire)"
   "-e"; "-e(suite de chiffre aléatoire)"
@@ -151,6 +151,21 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   "--,"; "--,(suite de chiffre aléatoire)"
   "--e"; "--e(suite de chiffre aléatoire)"
   "--,e"; "--,e(suite de chiffre aléatoire)"
-  etc ...
+  etc ... (Opérateurs numériques aussi : *+-/)
 */
-// Email
+
+// 
+
+function check()
+{
+  var nbr=document.quantity.nbr.value; // name(HTML)=quantity.nbr.value
+  if (isNaN(nbr))
+  {
+    document.getElementById("nbrWrong").innerHTML="Entrez uniquement une valeur numérique";
+    return false;
+  }
+  else
+  {
+    return true;
+  }
+}
