@@ -111,7 +111,7 @@ lastInputColor.forEach(lastInputColor => {lastInputColor.addEventListener("chang
 // Adresse email valide
 
 // Email
-let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // getElementById("first") -- Fonctionne mais que un par un
+let wrongInputColorEmail = document.querySelectorAll(".emailValidation");
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let emailWrong = document.querySelector(".emailWrong");
 emailWrong.innerHTML = '';
@@ -129,3 +129,28 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   }
 })
 });
+
+
+
+
+
+
+
+
+
+
+
+// Exercice 4
+// Nombre de concours --> Valeur numérique
+/* Pourquoi de base on a ces possibilités là ? Alors que dans HTML --> type = number
+  "e";  ; "e(suite de chiffre aléatoire)"
+  ",e"; ",e(suite de chiffre aléatoire)"
+  "-e"; "-e(suite de chiffre aléatoire)"
+  "-,e"; "-,e(suite de chiffre aléatoire)"
+  "--"; "--(suite de chiffre aléatoire)"
+  "--,"; "--,(suite de chiffre aléatoire)"
+  "--e"; "--e(suite de chiffre aléatoire)"
+  "--,e"; "--,e(suite de chiffre aléatoire)"
+  etc ...
+*/
+// Email
