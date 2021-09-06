@@ -111,14 +111,14 @@ lastInputColor.forEach(lastInputColor => {lastInputColor.addEventListener("chang
 // Adresse email valide
 
 // Email
-let wrongInputColorEmail = document.querySelectorAll(".emailValidation");
+let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // input class
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let emailWrong = document.querySelector(".emailWrong");
 emailWrong.innerHTML = '';
 
 wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
 {
-  if(email.value.match(validRegex))
+  if(email.value.match(validRegex)) // input id
   {
     wrongInputColorEmail.style.backgroundColor = "white";
   }
@@ -177,23 +177,47 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 //   }
 // }
 
-let regexNumbers = /^[0-9]+$/;
-let quantityId = document.getElementById("quantityId"); // input id
+// let regexNumbers = /^[0-9]+$/;
+// let quantityId = document.getElementById("quantityId"); // input id
+// let inputNumber = document.querySelectorAll(".numberValidation"); // input class
+// let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+// nbrWrong.innerHTML = '';
+// inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
+// {
+//   if(quantityId.value.match(regexNumbers)) // input id
+//   {
+//     alert('test');
+//     inputNumber.style.backgroundColor = "white"; // input class
+//     return true;
+//   }
+//   else
+//   {
+//     nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
+//     inputNumber.style.backgroundColor = "red";
+//     return false;
+//   }
+// })
+// });
+
+
+
+let quantityId = document.getElementById('quantityId'); // input id
 let inputNumber = document.querySelectorAll(".numberValidation"); // input class
 let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
 nbrWrong.innerHTML = '';
-inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
+
+inputNumber.forEach(inputNumber => {inputNumber.addEventListener('keydown', (e) => 
 {
-  if(quantityId.value.match(regexNumbers))
+  if(['1','2','3','4','5','6','7','8','9','0'].indexOf(e.key) !== -1)
   {
-    alert('test');
     inputNumber.style.backgroundColor = "white";
     return true;
-  }
-  else
-  {
-    nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
+  } 
+  else 
+  {("[a-zA-Z]+")
+    // e.preventDefault(); // Empêche aussi de supprimer n'importe quel caractère inscrit.
     inputNumber.style.backgroundColor = "red";
+    nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
     return false;
   }
 })
