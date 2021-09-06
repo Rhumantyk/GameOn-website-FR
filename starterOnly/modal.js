@@ -203,7 +203,7 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 
 let quantityId = document.getElementById('quantityId'); // input id
 let inputNumber = document.querySelectorAll(".numberValidation"); // input class
-let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+let nbrWrong = document.querySelector(".nbrWrong"); // p class
 nbrWrong.innerHTML = '';
 
 inputNumber.forEach(inputNumber => {inputNumber.addEventListener('keydown', (e) => 
@@ -212,9 +212,9 @@ inputNumber.forEach(inputNumber => {inputNumber.addEventListener('keydown', (e) 
   {
     inputNumber.style.backgroundColor = "white";
     return true;
-  } 
-  else 
-  {("[a-zA-Z]+")
+  }
+  else ("[a-zA-Z]+" || "['+', '-', '*', '/', '=', '<', '>', '<=', '>=', '&', '|', '^', '(', ')']")
+  {
     // e.preventDefault(); // Empêche aussi de supprimer n'importe quel caractère inscrit.
     inputNumber.style.backgroundColor = "red";
     nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
