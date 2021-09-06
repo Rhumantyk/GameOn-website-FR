@@ -54,10 +54,6 @@ function closeAnimationModal()
   }
 }
 
-
-
-
-
 // Exercice 2 
 // Prénom et Nom : Minimum de 2 caractères + n'est pas vide
 
@@ -101,12 +97,6 @@ lastInputColor.forEach(lastInputColor => {lastInputColor.addEventListener("chang
 })
 });
 
-
-
-
-
-
-
 // Exercice 3
 // Adresse email valide
 
@@ -130,16 +120,6 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
 })
 });
 
-
-
-
-
-
-
-
-
-
-
 // Exercice 4
 // Nombre de concours --> Valeur numérique
 
@@ -155,53 +135,6 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   etc ... (Opérateurs numériques aussi : *+-/)
 */
 
-// function checkNbr()
-// {
-//   let regexNumbers = /^[0-9]+$/;
-//   let inputNumber = document.querySelectorAll(".numberValidation"); // input class
-//   let inputValue = document.querySelectorAll("input[name='quantityName']").value; // .name(input).value
-//   let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
-//   nbrWrong.innerHTML = '';
-//   alert('test');
-//   if (inputValue.match(regexNumbers))
-//   {
-//     console.log('test if');
-//     inputNumber.style.backgroundColor = "white";
-//     return true;
-//   }
-//   else
-//   {
-//     nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
-//     inputNumber.style.backgroundColor = "red";
-//     return false;
-//   }
-// }
-
-// let regexNumbers = /^[0-9]+$/;
-// let quantityId = document.getElementById("quantityId"); // input id
-// let inputNumber = document.querySelectorAll(".numberValidation"); // input class
-// let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
-// nbrWrong.innerHTML = '';
-// inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
-// {
-//   if(quantityId.value.match(regexNumbers)) // input id
-//   {
-//     alert('test');
-//     inputNumber.style.backgroundColor = "white"; // input class
-//     return true;
-//   }
-//   else
-//   {
-//     nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
-//     inputNumber.style.backgroundColor = "red";
-//     return false;
-//   }
-// })
-// });
-
-
-
-let quantityId = document.getElementById('quantityId'); // input id
 let inputNumber = document.querySelectorAll(".numberValidation"); // input class
 let nbrWrong = document.querySelector(".nbrWrong"); // p class
 nbrWrong.innerHTML = '';
@@ -236,29 +169,67 @@ inputNumber.forEach(inputNumber => {inputNumber.addEventListener('keydown', (e) 
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
 
-function oneRadioBtnSelected()
+// function oneRadioBtnSelected()
+// {
+// var radios = document.location, i; // document.formName;
+// let location = document.querySelector(".locationWrong");
+// location.innerHTML = '';
+
+//   for (i=0; i<radios.length; i++)
+//   {
+//     if (radios[i].checked)
+//     {
+//       return true;
+//     }
+//     else
+//     {
+//       location.innerHTML = "Une ville doit être cochée";
+//       return false;
+//     }
+//   }
+// }
+
+// function oneRadioBtnSelected()
+// {
+// let radioVerification = document.querySelector('input[name = "location"]:checked');
+// // Vérification de l'input via son name, et via le fait que la pseudo-classe CSS :checked est true ou non.
+// let locationP = document.querySelector(".locationWrong");
+// locationP.innerHTML = '';
+//   if(radioVerification = true)
+//   {  //Test if something was checked
+//     location.innerHTML = '';
+//   }
+//   else
+//   {
+//     alert('Nothing checked'); //Alert, nothing was checked.
+//     locationP.innerHTML = "Une ville doit être cochée";
+//   }
+// }
+
+
+// let radioVerification = document.querySelector('input[name = "location"]:checked');
+// let locationId = document.getElementById("locationCheck").checked;
+let inputCheckbox = document.querySelectorAll(".checkbox-input"); // input class
+let locationWrong = document.querySelector(".nbrWrong"); // p class
+locationWrong.innerHTML = '';
+
+inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('keydown', (e) => 
 {
-var radios = document.reserve.location, i; // C'est quoi document ?.form(name).input(name), i
-let location = document.querySelectorAll(".locationWrong");
-location.innerHTML = '';
-
-  for (i=0; i<radios.length; i++)
+  if(document.querySelectorAll('input[name="location"]:checked')) // Si pseudo-classe :checked active, alors condition vraie
   {
-    if (radios[i].checked)
-    {
-      return true;
-    }
-    else
-    {
-      location.innerHTML = "Une ville doit être cochée";
-      return false;
-    }
+    inputCheckbox.style.backgroundColor = "white";
+    return true;
   }
-}
+  else
+  {
+    inputCheckbox.style.backgroundColor = "red";
+    locationWrong.innerHTML = "Veuillez choisir une ville";
+    return false;
+  }
+})
+});
 
 
 
-
-
-// Exercice 5
+// Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
