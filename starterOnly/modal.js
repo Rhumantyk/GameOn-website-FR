@@ -155,38 +155,17 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   etc ... (Opérateurs numériques aussi : *+-/)
 */
 
-function checkNbr()
-{
-  let regexNumbers = /^[0-9]+$/;
-  let inputNumber = document.querySelectorAll(".numberValidation"); // input class
-  let inputValue = document.querySelectorAll("input[name='quantityName']").value; // .name(input).value
-  let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
-  nbrWrong.innerHTML = '';
-  alert('test');
-  if (inputValue.match(regexNumbers))
-  {
-    console.log('test if');
-    inputNumber.style.backgroundColor = "white";
-    return true;
-  }
-  else
-  {
-    nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
-    inputNumber.style.backgroundColor = "red";
-    return false;
-  }
-}
-
-// let regexNumbers = /^[0-9]+$/;
-// let inputNumber = document.querySelectorAll(".numberValidation"); // input class
-// let inputValue = document.querySelectorAll("input[name='quantityName']").value; // .name(input).value
-// let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
-// nbrWrong.innerHTML = '';
-// inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
+// function checkNbr()
 // {
-//   if(inputValue.match(regexNumbers)) // (isNaN(quantity)) ou bien (quantity.match(regexNumbers)) ?
+//   let regexNumbers = /^[0-9]+$/;
+//   let inputNumber = document.querySelectorAll(".numberValidation"); // input class
+//   let inputValue = document.querySelectorAll("input[name='quantityName']").value; // .name(input).value
+//   let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+//   nbrWrong.innerHTML = '';
+//   alert('test');
+//   if (inputValue.match(regexNumbers))
 //   {
-//     alert('test');
+//     console.log('test if');
 //     inputNumber.style.backgroundColor = "white";
 //     return true;
 //   }
@@ -196,8 +175,29 @@ function checkNbr()
 //     inputNumber.style.backgroundColor = "red";
 //     return false;
 //   }
-// })
-// });
+// }
+
+let regexNumbers = /^[0-9]+$/;
+let quantityId = document.getElementById("quantityId"); // input id
+let inputNumber = document.querySelectorAll(".numberValidation"); // input class
+let nbrWrong = document.querySelectorAll(".nbrWrong"); // p class
+nbrWrong.innerHTML = '';
+inputNumber.forEach(inputNumber => {inputNumber.addEventListener("change", event =>
+{
+  if(quantityId.value.match(regexNumbers))
+  {
+    alert('test');
+    inputNumber.style.backgroundColor = "white";
+    return true;
+  }
+  else
+  {
+    nbrWrong.innerHTML = "Entrez uniquement un chiffre/nombre";
+    inputNumber.style.backgroundColor = "red";
+    return false;
+  }
+})
+});
 
 
 
@@ -212,7 +212,7 @@ function checkNbr()
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
 
-function oneRadioSelected()
+function oneRadioBtnSelected()
 {
 var radios = document.reserve.location, i; // C'est quoi document ?.form(name).input(name), i
 let location = document.querySelectorAll(".locationWrong");
@@ -231,3 +231,10 @@ location.innerHTML = '';
     }
   }
 }
+
+
+
+
+
+// Exercice 5
+// Condition générales cochés de facto. L'autre case peut-être délaissée.
