@@ -57,24 +57,24 @@ function closeAnimationModal()
 // Exercice 2 
 // Prénom et Nom : Minimum de 2 caractères + n'est pas vide
 
-// Prénom
-let firstInputColor = document.querySelectorAll(".first");
-let firstText = document.querySelector(".fWrong");
-firstText.innerHTML = '';
-firstInputColor.forEach(firstInputColor => {firstInputColor.addEventListener("change", event =>
+// Prénom -- À répercuter sur les autres
+let firstName = document.getElementById("first");
+let firstWrong = document.getElementById("firstWrong");
+firstWrong.innerHTML = '';
+firstName.addEventListener("change", event =>
 {
-  if(first.value.length < 2 | first.value.length == "") // "first/last" peuvent être remplacé par "this"
+  if(first.value.length < 2) // "first/last" peuvent être remplacé par "this"
   {
-    firstInputColor.style.backgroundColor = "red";
-    firstText.innerHTML = "2 caractères minimum sont requis";
+    firstName.style.backgroundColor = "red";
+    firstWrong.innerHTML = "2 caractères minimum sont requis";
+    return false;
   }
   else
   {
-    firstInputColor.style.backgroundColor = "white";
-    firstText.innerHTML = '';
+    firstName.style.backgroundColor = "white";
+    firstWrong.innerHTML = '';
     return true; // Semble non obligatoire, fonctionne sans
   }
-})
 });
 
 // Nom
@@ -135,20 +135,21 @@ wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEv
   etc ... (Opérateurs numériques aussi : *+-/)
 */
 
+let validRegexNumber = /^\d+$/;
 let inputNumber = document.querySelectorAll(".numberValidation"); // input class
 let nbrWrong = document.querySelector(".nbrWrong"); // p class
 nbrWrong.innerHTML = '';
 
-inputNumber.forEach(inputNumber => {inputNumber.addEventListener('keydown', (e) => 
+inputNumber.forEach(inputNumber => {inputNumber.addEventListener("keydown", event => 
 {
-  if(['1','2','3','4','5','6','7','8','9','0'].indexOf(e.key) !== -1)
+  if(quantityId.value.match(validRegexNumber)) // input id
   {
     inputNumber.style.backgroundColor = "white";
     return true;
   }
-  else ("[a-zA-Z]+" || "['+', '-', '*', '/', '=', '<', '>', '<=', '>=', '&', '|', '^', '(', ')']")
+  else
   {
-    // e.preventDefault(); // Empêche aussi de supprimer n'importe quel caractère inscrit.
+    // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
     inputNumber.style.backgroundColor = "red";
     nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
     return false;
@@ -169,17 +170,15 @@ inputNumber.forEach(inputNumber => {inputNumber.addEventListener('keydown', (e) 
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
 
-// let radioVerification = document.querySelector('input[name = "location"]:checked');
-// let locationId = document.getElementById("locationCheck").checked;
 let inputCheckbox = document.querySelectorAll(".checkbox-input"); // input class
 let locationWrong = document.querySelector(".nbrWrong"); // p class
 locationWrong.innerHTML = '';
 
-inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('keydown', (e) => 
+inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('keydown', event => // autre que keydown
 {
-  if(document.querySelectorAll('input[name="location"]:checked')) // Si pseudo-classe :checked active, alors condition vraie
+  if(document.querySelectorAll('input[name="location"]:checked')) // Si pseudo-classe :checked active, alors condition vraie (Echec)
   {
-    inputCheckbox.style.backgroundColor = "white";
+    inputCheckbox.style.backgroundColor = "initial";
     return true;
   }
   else
