@@ -124,8 +124,6 @@ email.addEventListener("change", event => // Évènement "change" = change la va
 // Exercice 4
 // Nombre de concours --> Valeur numérique
 
-
-
 let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
 let quantityId = document.getElementById("quantityId"); // input id
 let nbrWrong = document.getElementById("nbrWrong"); // p id
@@ -160,12 +158,13 @@ quantityId.addEventListener("keydown", event =>
 
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
+// Via class ou id ici ? Tous les input id sont différents ...
 
 let inputCheckbox = document.querySelectorAll(".checkbox-input"); // input class
 let locationWrong = document.querySelector(".nbrWrong"); // p class
 locationWrong.innerHTML = '';
 
-inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('keydown', event => // autre que keydown
+inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('change', event => // autre que keydown
 {
   if(document.querySelectorAll('input[name="location"]:checked')) // Si pseudo-classe :checked active, alors condition vraie (Echec)
   {
