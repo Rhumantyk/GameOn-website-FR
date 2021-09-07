@@ -73,7 +73,7 @@ firstName.addEventListener("change", event =>
   {
     firstName.style.backgroundColor = "white";
     firstWrong.innerHTML = '';
-    return true; // Semble non obligatoire, fonctionne sans
+    return true;
   }
 });
 
@@ -83,7 +83,7 @@ let lastWrong = document.getElementById("lastWrong");
 lastWrong.innerHTML = '';
 lastName.addEventListener("change", event =>
 {
-  if(last.value.length < 2 | last.value.length == "") // "first/last" peuvent être remplacé par "this"
+  if(last.value.length < 2 | last.value.length == "")
   {
     lastName.style.backgroundColor = "red";
     lastWrong.innerHTML = "2 caractères minimum sont requis";
@@ -92,7 +92,7 @@ lastName.addEventListener("change", event =>
   {
     lastName.style.backgroundColor = "white";
     lastWrong.innerHTML = '';
-    return true; // Semble non obligatoire, fonctionne sans
+    return true;
   }
 });
 
@@ -100,23 +100,25 @@ lastName.addEventListener("change", event =>
 // Adresse email valide
 
 // Email
-let wrongInputColorEmail = document.querySelectorAll(".emailValidation"); // input class
+let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-let emailWrong = document.querySelector(".emailWrong");
+let emailWrong = document.getElementById("emailWrong");
 emailWrong.innerHTML = '';
 
-wrongInputColorEmail.forEach(wrongInputColorEmail => {wrongInputColorEmail.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
+email.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
 {
   if(email.value.match(validRegex)) // input id
   {
-    wrongInputColorEmail.style.backgroundColor = "white";
+    email.style.backgroundColor = "white";
+    emailWrong.innerHTML = '';
+    return true;
   }
   else
   {
-    wrongInputColorEmail.style.backgroundColor = "red";
+    email.style.backgroundColor = "red";
     emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
+    return false;
   }
-})
 });
 
 // Exercice 4
