@@ -58,8 +58,8 @@ function closeAnimationModal()
 // Prénom et Nom : Minimum de 2 caractères + n'est pas vide
 
 // Prénom -- À répercuter sur les autres
-let firstName = document.getElementById("first");
-let firstWrong = document.getElementById("firstWrong");
+let firstName = document.getElementById("first"); // input id
+let firstWrong = document.getElementById("firstWrong"); // p id
 firstWrong.innerHTML = '';
 firstName.addEventListener("change", event =>
 {
@@ -78,23 +78,22 @@ firstName.addEventListener("change", event =>
 });
 
 // Nom
-let lastInputColor = document.querySelectorAll(".last");
-let lastText = document.querySelector(".lWrong");
-lastText.innerHTML = '';
-lastInputColor.forEach(lastInputColor => {lastInputColor.addEventListener("change", event =>
+let lastName = document.getElementById("last");
+let lastWrong = document.getElementById("lastWrong");
+lastWrong.innerHTML = '';
+lastName.addEventListener("change", event =>
 {
   if(last.value.length < 2 | last.value.length == "") // "first/last" peuvent être remplacé par "this"
   {
-    lastInputColor.style.backgroundColor = "red";
-    lastText.innerHTML = "2 caractères minimum sont requis";
+    lastName.style.backgroundColor = "red";
+    lastWrong.innerHTML = "2 caractères minimum sont requis";
   }
   else
   {
-    lastInputColor.style.backgroundColor = "white";
-    lastText.innerHTML = '';
+    lastName.style.backgroundColor = "white";
+    lastWrong.innerHTML = '';
     return true; // Semble non obligatoire, fonctionne sans
   }
-})
 });
 
 // Exercice 3
