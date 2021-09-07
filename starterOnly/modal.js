@@ -78,8 +78,8 @@ firstName.addEventListener("change", event =>
 });
 
 // Nom
-let lastName = document.getElementById("last");
-let lastWrong = document.getElementById("lastWrong");
+let lastName = document.getElementById("last"); // input id
+let lastWrong = document.getElementById("lastWrong"); // p id
 lastWrong.innerHTML = '';
 lastName.addEventListener("change", event =>
 {
@@ -102,7 +102,7 @@ lastName.addEventListener("change", event =>
 // Email
 let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-let emailWrong = document.getElementById("emailWrong");
+let emailWrong = document.getElementById("emailWrong"); // p id
 emailWrong.innerHTML = '';
 
 email.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
@@ -124,38 +124,28 @@ email.addEventListener("change", event => // Évènement "change" = change la va
 // Exercice 4
 // Nombre de concours --> Valeur numérique
 
-/* Pourquoi de base on a ces possibilités là ? Alors que dans HTML --> input type="number"
-  "e";  ; "e(suite de chiffre aléatoire)"
-  ",e"; ",e(suite de chiffre aléatoire)"
-  "-e"; "-e(suite de chiffre aléatoire)"
-  "-,e"; "-,e(suite de chiffre aléatoire)"
-  "--"; "--(suite de chiffre aléatoire)"
-  "--,"; "--,(suite de chiffre aléatoire)"
-  "--e"; "--e(suite de chiffre aléatoire)"
-  "--,e"; "--,e(suite de chiffre aléatoire)"
-  etc ... (Opérateurs numériques aussi : *+-/)
-*/
 
-let validRegexNumber = /^\d+$/;
-let inputNumber = document.querySelectorAll(".numberValidation"); // input class
-let nbrWrong = document.querySelector(".nbrWrong"); // p class
+
+let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
+let quantityId = document.getElementById("quantityId"); // input id
+let nbrWrong = document.getElementById("nbrWrong"); // p id
 nbrWrong.innerHTML = '';
 
-inputNumber.forEach(inputNumber => {inputNumber.addEventListener("keydown", event => 
+quantityId.addEventListener("keydown", event => 
 {
   if(quantityId.value.match(validRegexNumber)) // input id
   {
-    inputNumber.style.backgroundColor = "white";
+    quantityId.style.backgroundColor = "white";
+    nbrWrong.innerHTML = '';
     return true;
   }
   else
   {
     // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
-    inputNumber.style.backgroundColor = "red";
+    quantityId.style.backgroundColor = "red";
     nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
     return false;
   }
-})
 });
 
 
