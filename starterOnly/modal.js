@@ -160,27 +160,94 @@ quantityId.addEventListener("keydown", event =>
 // Selectionner un bouton radio --> Obligatoire
 // Via class ou id ici ? Tous les input id sont différents ...
 
-let inputCheckbox = document.querySelectorAll(".checkbox-input"); // input class
-let locationWrong = document.querySelector(".nbrWrong"); // p class
-locationWrong.innerHTML = '';
+// let inputCheckbox = document.querySelectorAll("#location1", "location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+// let locationWrong = document.querySelector(".locationWrong"); // p class
+// locationWrong.innerHTML = '';
 
-inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('change', event => // autre que keydown
+// inputCheckbox.forEach(inputCheckbox => {inputCheckbox.addEventListener('change', event => // autre que keydown
+// {
+//   if(document.querySelectorAll('input[name="location"]:checked')) // Si pseudo-classe :checked active, alors condition vraie (Echec)
+//   {
+//     inputCheckbox.style.backgroundColor = "initial";
+//     return true;
+//   }
+//   else
+//   {
+//     inputCheckbox.style.backgroundColor = "red";
+//     locationWrong.innerHTML = "Veuillez choisir une ville";
+//     return false;
+//   }
+// })
+// });
+
+// function radioBtnCheck() // Originel
+// {
+// let location = '';
+// let locationName = document.querySelectorAll('input[name="location"]');
+
+// for(let i=0; i<locationName.length; i++) // En théorie : document.reserve.location.length;
+// {
+//   if (locationName[i].checked)
+//   {
+//     location = locationName[i].value;
+//     break; // Case cochée, sortie de la boucle.
+//   }
+//   if (location == '')
+//   {
+//     alert('Saisir une location')
+//   }
+//   else
+//   {
+//     console.log(location);
+//   }
+// }
+// }
+
+// function radioBtnCheck()
+// {
+//   // let inputCheckbox1 = document.getElementById("#location1");
+// // let inputCheckbox = document.querySelectorAll("#location1", "location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+// let locationWrong = document.querySelector(".locationWrong"); // p class
+// locationWrong.innerHTML = '';
+// let locationName = document.querySelectorAll('input[name="location"]'); // input name
+//   if (locationName.checked)
+//   {
+//       locationWrong.innerHTML = '';
+//       return true;
+//   }
+//   else
+//   {
+//       locationWrong.innerHTML = "Veuillez choisir une ville";
+//       return false;
+//   }
+// }
+
+function radioBtnCheck() 
 {
-  if(document.querySelectorAll('input[name="location"]:checked')) // Si pseudo-classe :checked active, alors condition vraie (Echec)
+  let location1 = document.getElementById("location1");
+let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+let locationWrong = document.getElementById("locationWrong"); // id class
+locationWrong.innerHTML = '';
+locations.addEventListener("click", event =>
   {
-    inputCheckbox.style.backgroundColor = "initial";
-    return true;
-  }
-  else
-  {
-    inputCheckbox.style.backgroundColor = "red";
-    locationWrong.innerHTML = "Veuillez choisir une ville";
-    return false;
-  }
-})
+    if(location1.checked = true)
+    {
+      locationWrong.innerHTML = '';
+      return true;
+    }
+    else
+    {
+      locationWrong.innerHTML = "Veuillez choisir une ville";
+      return false;
+    }
 });
-
+}
 
 
 // Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
+// Page 221 Tout JavaScript
+
+
+// Exercice 7
+// Page 215 Tout JavaScript --> Attribut disabled
