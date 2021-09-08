@@ -225,17 +225,17 @@ quantityId.addEventListener("keydown", event =>
 function radioBtnCheck() 
 {
   let location1 = document.getElementById("location1");
-let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+// let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
 let locationWrong = document.getElementById("locationWrong"); // id class
 locationWrong.innerHTML = '';
-locations.addEventListener("click", event =>
+location1.addEventListener("click", event =>
   {
     if(location1.checked = true)
     {
       locationWrong.innerHTML = '';
       return true;
     }
-    else
+    else(location1.checked = false)
     {
       locationWrong.innerHTML = "Veuillez choisir une ville";
       return false;
@@ -247,6 +247,24 @@ locations.addEventListener("click", event =>
 // Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
 // Page 221 Tout JavaScript
+
+function checkboxBtnCheck()
+{
+  let checkData = document.querySelectorAll('input[name="checkData"]'); // input name
+  let dataWrong = document.getElementById("dataWrong"); // p id
+  dataWrong.innerHTML = '';
+  if (checkData.checked)
+  {
+    dataWrong.innerHTML = '';
+    return true;
+  }
+  else
+  {
+    dataWrong.innerHTML = "Cochez la case";
+    return false;
+  }
+}
+
 
 
 // Exercice 7
