@@ -281,7 +281,7 @@ locations.addEventListener("click", radioCheck, true);
 
 function radioCheck()
 {
-  if(locations.checked)
+  if(locations.checked = true)
   {
     locationWrong.innerHTML = '';
     return true
@@ -302,10 +302,10 @@ function radioCheck()
 
 function checkboxBtnCheck()
 {
-  let checkData = document.querySelectorAll('input[name="checkData"]'); // input name
+  let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
-  if (checkData.checked)
+  if (checkBoxData.checked == true)
   {
     dataWrong.innerHTML = '';
     return true;
@@ -326,15 +326,17 @@ function checkboxBtnCheck()
 // Exercice Formulaire valide lors du clique sur Submit
 // if(document.getElementById("email")=="" || document.getElementById("password")=="" || document.getElementById("last_name")=="" || document.getElementById("first_name")=="")
 
-function validate() // Cf dans l'HTML --> onsubmit="return validate();" 
+function validate() // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
-  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && quantityCheck(true))
+  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && quantityCheck(true) && radioCheck(true) && checkboxBtnCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
   {
-    return true
+    alert('Test vrai');
+    return true;
   }
   else
   {
-    return false
+    alert('Test faux');
+    return false;
   }
 }
 
