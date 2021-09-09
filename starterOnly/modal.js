@@ -81,7 +81,8 @@ function closeAnimationModal()
 
 
 
-// TEST
+// TEST Séparation addEventListener de la function firstNameCheck() associée
+// Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
 
 let firstName = document.getElementById("first"); // input id
 let firstWrong = document.getElementById("firstWrong"); // p id
@@ -104,15 +105,36 @@ function firstNameCheck()
     return true;
   }
 }
-
 // TEST
 
 
 // Nom
+// let lastName = document.getElementById("last"); // input id
+// let lastWrong = document.getElementById("lastWrong"); // p id
+// lastWrong.innerHTML = '';
+// lastName.addEventListener("change", event =>
+// {
+//   if(last.value.length < 2 | last.value.length == "")
+//   {
+//     lastName.style.backgroundColor = "red";
+//     lastWrong.innerHTML = "2 caractères minimum sont requis";
+//   }
+//   else
+//   {
+//     lastName.style.backgroundColor = "white";
+//     lastWrong.innerHTML = '';
+//     return true;
+//   }
+// });
+
+// TEST Séparation addEventListener de la function firstNameCheck() associée
+
 let lastName = document.getElementById("last"); // input id
 let lastWrong = document.getElementById("lastWrong"); // p id
 lastWrong.innerHTML = '';
-lastName.addEventListener("change", event =>
+lastName.addEventListener("change", lastNameCheck, true);
+
+function lastNameCheck()
 {
   if(last.value.length < 2 | last.value.length == "")
   {
@@ -125,41 +147,57 @@ lastName.addEventListener("change", event =>
     lastWrong.innerHTML = '';
     return true;
   }
-});
-
-// function checkLastName()
-// {
-//   // Call lastName.addEventListener
-// }
+}
+// TEST
 
 // Exercice 3
 // Adresse email valide
 
 // Email
+// let email = document.getElementById("email"); // input id
+// let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+// let emailWrong = document.getElementById("emailWrong"); // p id
+// emailWrong.innerHTML = '';
+//   email.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
+//   {
+//     if(email.value.match(validRegex)) // input id
+//     {
+//       email.style.backgroundColor = "white";
+//       emailWrong.innerHTML = '';
+//       return true;
+//     }
+//     else
+//     {
+//       email.style.backgroundColor = "red";
+//       emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
+//       return false;
+//     }
+//   });
+
+// TEST Séparation addEventListener de la function firstNameCheck() associée
+
 let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let emailWrong = document.getElementById("emailWrong"); // p id
 emailWrong.innerHTML = '';
-  email.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
+email.addEventListener("change", emailCheck, true);
+
+function emailCheck()
+{
+  if(email.value.match(validRegex)) // input id
   {
-    if(email.value.match(validRegex)) // input id
-    {
-      email.style.backgroundColor = "white";
-      emailWrong.innerHTML = '';
-      return true;
-    }
-    else
-    {
-      email.style.backgroundColor = "red";
-      emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
-      return false;
-    }
-  });
-
-// function checkEmail()
-// {
-
-// }
+    email.style.backgroundColor = "white";
+    emailWrong.innerHTML = '';
+    return true;
+  }
+  else
+  {
+    email.style.backgroundColor = "red";
+    emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
+    return false;
+  }
+}
+// TEST
 
 // Exercice 4
 // Nombre de concours --> Valeur numérique
