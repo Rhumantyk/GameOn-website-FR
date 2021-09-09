@@ -83,11 +83,10 @@ function closeAnimationModal()
 
 // TEST Séparation addEventListener de la function firstNameCheck() associée
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
-
 let firstName = document.getElementById("first"); // input id
 let firstWrong = document.getElementById("firstWrong"); // p id
 firstWrong.innerHTML = '';
-firstName.addEventListener("change", firstNameCheck, true);
+firstName.addEventListener("change", firstNameCheck, true); // true est-il necessaire ici ?
 
 function firstNameCheck()
 {
@@ -127,8 +126,7 @@ function firstNameCheck()
 //   }
 // });
 
-// TEST Séparation addEventListener de la function firstNameCheck() associée
-
+// TEST Séparation addEventListener de la function lastNameCheck() associée
 let lastName = document.getElementById("last"); // input id
 let lastWrong = document.getElementById("lastWrong"); // p id
 lastWrong.innerHTML = '';
@@ -174,8 +172,7 @@ function lastNameCheck()
 //     }
 //   });
 
-// TEST Séparation addEventListener de la function firstNameCheck() associée
-
+// TEST Séparation addEventListener de la function emailCheck() associée
 let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let emailWrong = document.getElementById("emailWrong"); // p id
@@ -202,31 +199,51 @@ function emailCheck()
 // Exercice 4
 // Nombre de concours --> Valeur numérique
 
+// let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
+// let quantityId = document.getElementById("quantityId"); // input id
+// let nbrWrong = document.getElementById("nbrWrong"); // p id
+// nbrWrong.innerHTML = '';
+//   quantityId.addEventListener("keydown", keydown => 
+//   {
+//     if(quantityId.value.match(validRegexNumber)) // input id
+//     {
+//       quantityId.style.backgroundColor = "white";
+//       nbrWrong.innerHTML = '';
+//       return true;
+//     }
+//     else
+//     {
+//       // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
+//       quantityId.style.backgroundColor = "red";
+//       nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
+//       return false;
+//     }
+//   });
+
+// TEST Séparation addEventListener de la function quantityCheck() associée
 let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
 let quantityId = document.getElementById("quantityId"); // input id
 let nbrWrong = document.getElementById("nbrWrong"); // p id
 nbrWrong.innerHTML = '';
-  quantityId.addEventListener("keydown", keydown => 
-  {
-    if(quantityId.value.match(validRegexNumber)) // input id
-    {
-      quantityId.style.backgroundColor = "white";
-      nbrWrong.innerHTML = '';
-      return true;
-    }
-    else
-    {
-      // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
-      quantityId.style.backgroundColor = "red";
-      nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
-      return false;
-    }
-  });
+quantityId.addEventListener("keydown", quantityCheck, true);
 
-// function eventsNumber()
-// {
-//   // Call quantityId.addEventListener
-// }
+function quantityCheck()
+{
+  if(quantityId.value.match(validRegexNumber)) // input id
+  {
+    quantityId.style.backgroundColor = "white";
+    nbrWrong.innerHTML = '';
+    return true;
+  }
+  else
+  {
+    // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
+    quantityId.style.backgroundColor = "red";
+    nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
+    return false;
+  }
+}
+// TEST
 
 
 
@@ -238,11 +255,32 @@ nbrWrong.innerHTML = '';
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
 
+// let location1 = document.getElementById("location1");
+// let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+// let locationWrong = document.getElementById("locationWrong"); // id class
+// locationWrong.innerHTML = '';
+// location1.addEventListener("click", event =>
+// {
+//   if(location1.checked = true)
+//   {
+//     locationWrong.innerHTML = '';
+//     return true
+//   }
+//   else
+//   {
+//     locationWrong.innerHTML = "Veuillez choisir une ville";
+//     return false;
+//   }
+// });
+
+// TEST Séparation addEventListener de la function radioCheck() associée
 let location1 = document.getElementById("location1");
 let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
 let locationWrong = document.getElementById("locationWrong"); // id class
 locationWrong.innerHTML = '';
-location1.addEventListener("click", event =>
+location1.addEventListener("click", radioCheck, true);
+
+function radioCheck()
 {
   if(location1.checked = true)
   {
@@ -254,12 +292,8 @@ location1.addEventListener("click", event =>
     locationWrong.innerHTML = "Veuillez choisir une ville";
     return false;
   }
-});
-
-function radioBtnCheck() 
-{
-  // Call locations.addEventListener
 }
+// TEST
 
 
 
