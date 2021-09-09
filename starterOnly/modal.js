@@ -274,15 +274,14 @@ function quantityCheck()
 // });
 
 // TEST Séparation addEventListener de la function radioCheck() associée
-let location1 = document.getElementById("location1");
-let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+let locations = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
 let locationWrong = document.getElementById("locationWrong"); // id class
 locationWrong.innerHTML = '';
-location1.addEventListener("click", radioCheck, true);
+locations.addEventListener("click", radioCheck, true);
 
 function radioCheck()
 {
-  if(location1.checked = true)
+  if(locations.checked)
   {
     locationWrong.innerHTML = '';
     return true
@@ -327,13 +326,17 @@ function checkboxBtnCheck()
 // Exercice Formulaire valide lors du clique sur Submit
 // if(document.getElementById("email")=="" || document.getElementById("password")=="" || document.getElementById("last_name")=="" || document.getElementById("first_name")=="")
 
-// function checkSubmit()
-// {
-//   if(eventsNumber(true) && checkEmail(true))
-//   {
-
-//   }
-// }
+function validate() // Cf dans l'HTML --> onsubmit="return validate();" 
+{
+  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && quantityCheck(true))
+  {
+    return true
+  }
+  else
+  {
+    return false
+  }
+}
 
 
 
