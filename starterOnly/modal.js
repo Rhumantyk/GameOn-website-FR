@@ -91,7 +91,7 @@ firstName.addEventListener("change", firstNameCheck, true); // true est-il neces
 function firstNameCheck()
 {
   // Call firstName.addEventListener
-  if(first.value.length < 2) // "first/last" peuvent être remplacé par "this"
+  if(first.value.length < 2) // "first" peut être remplacé par "this"
   {
     firstName.style.backgroundColor = "red";
     firstWrong.innerHTML = "2 caractères minimum sont requis";
@@ -302,11 +302,13 @@ function radioCheck()
 
 function checkboxBtnCheck()
 {
-  let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
+  // let checkBoxData = document.querySelectorAll("#checkbox1, #checkbox2")
+  // let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
-  if (checkBoxData.checked == true)
+  if (checkData.checked)
   {
+    alert('Test vrai');
     dataWrong.innerHTML = '';
     return true;
   }
@@ -323,23 +325,25 @@ function checkboxBtnCheck()
 // Page 215 Tout JavaScript --> Attribut disabled
 
 
-// Exercice Formulaire valide lors du clique sur Submit
-// if(document.getElementById("email")=="" || document.getElementById("password")=="" || document.getElementById("last_name")=="" || document.getElementById("first_name")=="")
 
+// Quand formulaire faux, ne pas effacer les données
+// event.preventDefault
+let formName = document.getElementsByClassName(".form");
+formName.addEventListener("submit", validate(evt));
+// Exercice Formulaire valide lors du clique sur Submit
 function validate() // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
-  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && quantityCheck(true) && radioCheck(true) && checkboxBtnCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
+  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
   {
     alert('Test vrai');
     return true;
   }
   else
   {
+    
     alert('Test faux');
-    return false;
+    
+    // return false;
+    evt.preventDefault();
   }
 }
-
-
-
-
