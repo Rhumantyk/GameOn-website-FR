@@ -570,6 +570,15 @@ footer {
   }
 }
 
+/* Ajout */
+@media (min-width: 769px) and (max-width: 1023px)
+{
+  .hero-headline
+  {
+    font-size: 4.6rem;
+  }
+}
+
 
 /* keyframes */
 @keyframes modalopen {
