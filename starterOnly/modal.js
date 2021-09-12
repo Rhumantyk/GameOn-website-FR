@@ -199,16 +199,17 @@ function emailCheck()
 
 
 
-// Exercice Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec erreur(s)
+// Exercice Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec ou sans erreur(s)
 let birthdayId = document.getElementById("birthdate"); // input id
-let regexBirthday = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+// let regexBirthday = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+let regexBirthday = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 let birthdateWrong = document.getElementById("birthdateWrong"); // p id
 birthdateWrong.innerHTML = '';
 birthdayId.addEventListener("change", birthdayCheck, true);
 
 function birthdayCheck()
 {
-  if(birthdayId.value.match(regexBirthday)) // input id
+  if(birthdayId.value.match(regexBirthday))
   {
     birthdayId.style.backgroundColor = "white";
     birthdateWrong.innerHTML = '';
