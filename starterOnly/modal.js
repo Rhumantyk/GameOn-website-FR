@@ -205,9 +205,9 @@ let birthdayId = document.getElementById("birthdate"); // input id
 let regexBirthday = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
 let birthdateWrong = document.getElementById("birthdateWrong"); // p id
 birthdateWrong.innerHTML = '';
-birthdayId.addEventListener("change", birthdayCheck, true);
+birthdayId.addEventListener("change", birthdateCheck, true);
 
-function birthdayCheck()
+function birthdateCheck()
 {
   if(birthdayId.value.match(regexBirthday))
   {
@@ -285,13 +285,16 @@ function quantityCheck()
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
 
-// let location1 = document.getElementById("location1");
-// let locations = document.querySelectorAll("#location1", "#location2", "#location3", "#location4", "#location5", "#location6"); // input ids
+// TEST Séparation addEventListener de la function radioCheck() associée
+// let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
 // let locationWrong = document.getElementById("locationWrong"); // id class
 // locationWrong.innerHTML = '';
-// location1.addEventListener("click", event =>
+// locationsId.addEventListener("click", radioCheck, true);
+// radiosName.forEach( radiosName => radiosName.addEventListener("click", radioCheck, true));
+
+// function radioCheck()
 // {
-//   if(location1.checked = true)
+//   if(locationsId.checked = true)
 //   {
 //     locationWrong.innerHTML = '';
 //     return true
@@ -301,28 +304,31 @@ function quantityCheck()
 //     locationWrong.innerHTML = "Veuillez choisir une ville";
 //     return false;
 //   }
-// });
+// }
+// // TEST
 
-// TEST Séparation addEventListener de la function radioCheck() associée
-let locations = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
-let locationWrong = document.getElementById("locationWrong"); // id class
-locationWrong.innerHTML = '';
-locations.addEventListener("click", radioCheck, true);
+// TEST 2
 
 function radioCheck()
 {
-  if(locations.checked = true)
+var radiosName = document.getElementsByName("location");
+
+  for (let i = 0, len = radiosName.length; i < len; i++) // Comment traduire ça ?
   {
-    locationWrong.innerHTML = '';
-    return true
-  }
-  else
-  {
-    locationWrong.innerHTML = "Veuillez choisir une ville";
-    return false;
+    if (radiosName[i].checked) 
+    {
+      locationWrong.innerHTML = '';
+      return true
+    }
+    else
+    {
+      locationWrong.innerHTML = "Veuillez choisir une ville";
+      return false;
+    }
   }
 }
-// TEST
+
+// FIN TEST 2
 
 
 
@@ -363,12 +369,12 @@ formName.addEventListener("submit", validate(evt));
 // Exercice Formulaire valide lors du clique sur Submit
 function validate() // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
-  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdayCheck && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
+  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
   {
     alert('Test vrai');
     return true;
   }
-  else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdayCheck(false) || quantityCheck(false)) // || radioCheck(true) || checkboxBtnCheck(true)
+  else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdateCheck(false) || quantityCheck(false)) // || radioCheck(true) || checkboxBtnCheck(true)
   {
     
     alert('Test faux');
