@@ -97,9 +97,20 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    /* Suppression de ce qui suit --> Originellement présent */
+    /* margin-top: -15px; */
   }
-} 
+}
+
+/* Ajout */
+@media screen and (max-width: 340px)
+{
+  .topnav a {display: none;}
+  .topnav a.icon
+  {
+    margin-top: -46px;
+  }
+}
 
 main {
   font-size: 130%;
