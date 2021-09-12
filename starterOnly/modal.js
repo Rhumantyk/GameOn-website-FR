@@ -365,13 +365,13 @@ function checkboxBtnCheck()
 // Quand formulaire faux, ne pas effacer les données
 // event.preventDefault
 let formName = document.getElementsByClassName(".form");
-formName.addEventListener("submit", validate(evt));
+formName.addEventListener("submit", validate);
 // Exercice Formulaire valide lors du clique sur Submit
-function validate() // Cf dans l'HTML, Form --> onsubmit="return validate();" 
+function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
   if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
   {
-    alert('Test vrai');
+    alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
     return true;
   }
   else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdateCheck(false) || quantityCheck(false)) // || radioCheck(true) || checkboxBtnCheck(true)
