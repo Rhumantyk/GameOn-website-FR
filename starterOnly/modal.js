@@ -196,6 +196,35 @@ function emailCheck()
 }
 // TEST
 
+
+
+
+// Exercice Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec erreur(s)
+let birthdayId = document.getElementById("birthdate"); // input id
+let regexBirthday = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+let birthdateWrong = document.getElementById("birthdateWrong"); // p id
+birthdateWrong.innerHTML = '';
+birthdayId.addEventListener("change", birthdayCheck, true);
+
+function birthdayCheck()
+{
+  if(birthdayId.value.match(regexBirthday)) // input id
+  {
+    birthdayId.style.backgroundColor = "white";
+    birthdateWrong.innerHTML = '';
+    return true;
+  }
+  else
+  {
+    birthdayId.style.backgroundColor = "red";
+    birthdateWrong.innerHTML = "Vous devez entrer votre date de naissance";
+    return false;
+  }
+}
+
+
+
+
 // Exercice 4
 // Nombre de concours --> Valeur numérique
 
@@ -303,10 +332,10 @@ function radioCheck()
 function checkboxBtnCheck()
 {
   // let checkBoxData = document.querySelectorAll("#checkbox1, #checkbox2")
-  // let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
+  let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
-  if (checkData.checked)
+  if (checkBoxData.checked)
   {
     alert('Test vrai');
     dataWrong.innerHTML = '';
@@ -314,7 +343,7 @@ function checkboxBtnCheck()
   }
   else
   {
-    dataWrong.innerHTML = "Cochez la case";
+    dataWrong.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation";
     return false;
   }
 }
@@ -333,17 +362,16 @@ formName.addEventListener("submit", validate(evt));
 // Exercice Formulaire valide lors du clique sur Submit
 function validate() // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
-  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
+  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdayCheck && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
   {
     alert('Test vrai');
     return true;
   }
-  else
+  else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdayCheck(false) || quantityCheck(false)) // || radioCheck(true) || checkboxBtnCheck(true)
   {
     
     alert('Test faux');
-    
-    // return false;
-    evt.preventDefault();
+    // evt.preventDefault();
+    return false;
   }
 }
