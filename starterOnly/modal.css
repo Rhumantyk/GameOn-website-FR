@@ -493,15 +493,9 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover; /* Ajout */
 }
 
-@media screen and (min-width: 769px)
-{
-  .hero-img img
-  {
-    width: auto; /* Changement, originellement : 100% */
-  }
-}
 .copyrights {
   color: #fe142f;
   padding: 0;
