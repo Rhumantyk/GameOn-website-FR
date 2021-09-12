@@ -286,48 +286,47 @@ function quantityCheck()
 // Selectionner un bouton radio --> Obligatoire
 
 // TEST Séparation addEventListener de la function radioCheck() associée
-// let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
-// let locationWrong = document.getElementById("locationWrong"); // id class
-// locationWrong.innerHTML = '';
+// let radiosName = document.getElementsByName("location");
+let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
+let locationWrong = document.getElementById("locationWrong"); // id class
+locationWrong.innerHTML = '';
 // locationsId.addEventListener("click", radioCheck, true);
-// radiosName.forEach( radiosName => radiosName.addEventListener("click", radioCheck, true));
-
-// function radioCheck()
-// {
-//   if(locationsId.checked = true)
-//   {
-//     locationWrong.innerHTML = '';
-//     return true
-//   }
-//   else
-//   {
-//     locationWrong.innerHTML = "Veuillez choisir une ville";
-//     return false;
-//   }
-// }
-// // TEST
-
-// TEST 2
+locationsId.forEach( locationsId => locationsId.addEventListener("click", radioCheck, true));
 
 function radioCheck()
 {
-var radiosName = document.getElementsByName("location");
-
-  for (let i = 0, len = radiosName.length; i < len; i++) // Comment traduire ça ?
+  if(locationsId.checked)
   {
-    if (radiosName[i].checked) 
-    {
-      locationWrong.innerHTML = '';
-      return true
-    }
-    else
-    {
-      locationWrong.innerHTML = "Veuillez choisir une ville";
-      return false;
-    }
+    locationWrong.innerHTML = '';
+    return true
+  }
+  else
+  {
+    locationWrong.innerHTML = "Veuillez choisir une ville";
+    return false;
   }
 }
+// // TEST
 
+// TEST 2
+// function radioCheck()
+// {
+// let radiosName = document.getElementsByName("location");
+
+//   for (let i = 0, len = radiosName.length; i < len; i++) // Comment traduire ça ?
+//   {
+//     if (radiosName[i].checked) 
+//     {
+//       locationWrong.innerHTML = '';
+//       return true
+//     }
+//     else
+//     {
+//       locationWrong.innerHTML = "Veuillez choisir une ville";
+//       return false;
+//     }
+//   }
+// }
 // FIN TEST 2
 
 
@@ -357,9 +356,20 @@ function checkboxBtnCheck()
 
 
 
-// Exercice 7
+// Disabled Btn submit
 // Page 215 Tout JavaScript --> Attribut disabled
-
+function buttonAccess()
+{
+  let buttonSubmit = document.getElementsByClassName("btn-submit");
+  if(validate(false))
+  {
+    buttonSubmit.classList.add("btn-submit-disabled");
+  }
+  else
+  {
+    buttonSubmit.classList.remove("btn-submit-disabled");
+  }
+}
 
 
 // Quand formulaire faux, ne pas effacer les données
@@ -369,15 +379,15 @@ formName.addEventListener("submit", validate);
 // Exercice Formulaire valide lors du clique sur Submit
 function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
-  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true)) // && radioCheck(true) && checkboxBtnCheck(true)
+  formName.disabled = true;
+  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true) && radioCheck(true) && checkboxBtnCheck(true))
   {
     alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
     return true;
   }
-  else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdateCheck(false) || quantityCheck(false)) // || radioCheck(true) || checkboxBtnCheck(true)
+  else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdateCheck(false) || quantityCheck(false) || radioCheck(true) || checkboxBtnCheck(true)) // || radioCheck(true) || checkboxBtnCheck(true)
   {
-    
-    alert('Test faux');
+    alert('Test faux'); // À enlever lorsque tout fonctionnera
     // evt.preventDefault();
     return false;
   }
