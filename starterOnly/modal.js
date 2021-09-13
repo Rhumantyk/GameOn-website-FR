@@ -17,8 +17,9 @@ const modalBtn = document.querySelectorAll(".modal-btn"); // Une des classes du 
 const formData = document.querySelectorAll(".formData"); // Classes des entrées (champs de texte/btn radio/checkbox) du formulaire.
 const modalCloseBtn = document.querySelectorAll(".close") // classe du bouton "X" de la modale
 
+// Ouverture de la modale via le btn "X"
 // launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal)); // Pourquoi un eventlistener ici au lieu d'une fonction classique ?
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // launch modal form
 function launchModal()
@@ -26,9 +27,7 @@ function launchModal()
   modalbg.style.display = "block";
 }
 
-
-// Exercice 1 Fermer la modale via le btn "X"
-
+// Fermeture de la modale via le btn "X"
 // Close  modal form
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
 
@@ -55,33 +54,7 @@ function closeAnimationModal()
 }
 
 // Exercice 2 
-// Prénom et Nom : Minimum de 2 caractères + n'est pas vide
-
-// Prénom -- À répercuter sur les autres
-// let firstName = document.getElementById("first"); // input id
-// let firstWrong = document.getElementById("firstWrong"); // p id
-// firstWrong.innerHTML = '';
-// firstName.addEventListener("change", event =>
-// {
-//   if(first.value.length < 2) // "first/last" peuvent être remplacé par "this"
-//   {
-//     firstName.style.backgroundColor = "red";
-//     firstWrong.innerHTML = "2 caractères minimum sont requis";
-//     return false;
-//   }
-//   else
-//   {
-//     firstName.style.backgroundColor = "white";
-//     firstWrong.innerHTML = '';
-//     return true;
-//   }
-// });
-
-
-
-
-
-// TEST Séparation addEventListener de la function firstNameCheck() associée
+// Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
 let firstName = document.getElementById("first"); // input id
 let firstWrong = document.getElementById("firstWrong"); // p id
@@ -90,8 +63,7 @@ firstName.addEventListener("change", firstNameCheck, true); // true est-il neces
 
 function firstNameCheck()
 {
-  // Call firstName.addEventListener
-  if(first.value.length < 2) // "first" peut être remplacé par "this"
+  if(first.value.length < 2)
   {
     firstName.style.backgroundColor = "red";
     firstWrong.innerHTML = "2 caractères minimum sont requis";
@@ -104,29 +76,8 @@ function firstNameCheck()
     return true;
   }
 }
-// TEST
 
-
-// Nom
-// let lastName = document.getElementById("last"); // input id
-// let lastWrong = document.getElementById("lastWrong"); // p id
-// lastWrong.innerHTML = '';
-// lastName.addEventListener("change", event =>
-// {
-//   if(last.value.length < 2 | last.value.length == "")
-//   {
-//     lastName.style.backgroundColor = "red";
-//     lastWrong.innerHTML = "2 caractères minimum sont requis";
-//   }
-//   else
-//   {
-//     lastName.style.backgroundColor = "white";
-//     lastWrong.innerHTML = '';
-//     return true;
-//   }
-// });
-
-// TEST Séparation addEventListener de la function lastNameCheck() associée
+// Nom : Minimum de 2 caractères + n'est pas vide
 let lastName = document.getElementById("last"); // input id
 let lastWrong = document.getElementById("lastWrong"); // p id
 lastWrong.innerHTML = '';
@@ -146,33 +97,9 @@ function lastNameCheck()
     return true;
   }
 }
-// TEST
 
 // Exercice 3
-// Adresse email valide
-
 // Email
-// let email = document.getElementById("email"); // input id
-// let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-// let emailWrong = document.getElementById("emailWrong"); // p id
-// emailWrong.innerHTML = '';
-//   email.addEventListener("change", event => // Évènement "change" = change la valeur du champ de formulaire
-//   {
-//     if(email.value.match(validRegex)) // input id
-//     {
-//       email.style.backgroundColor = "white";
-//       emailWrong.innerHTML = '';
-//       return true;
-//     }
-//     else
-//     {
-//       email.style.backgroundColor = "red";
-//       emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
-//       return false;
-//     }
-//   });
-
-// TEST Séparation addEventListener de la function emailCheck() associée
 let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 let emailWrong = document.getElementById("emailWrong"); // p id
@@ -194,10 +121,6 @@ function emailCheck()
     return false;
   }
 }
-// TEST
-
-
-
 
 // Exercice Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec ou sans erreur(s)
 let birthdayId = document.getElementById("birthdate"); // input id
@@ -228,29 +151,6 @@ function birthdateCheck()
 
 // Exercice 4
 // Nombre de concours --> Valeur numérique
-
-// let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
-// let quantityId = document.getElementById("quantityId"); // input id
-// let nbrWrong = document.getElementById("nbrWrong"); // p id
-// nbrWrong.innerHTML = '';
-//   quantityId.addEventListener("keydown", keydown => 
-//   {
-//     if(quantityId.value.match(validRegexNumber)) // input id
-//     {
-//       quantityId.style.backgroundColor = "white";
-//       nbrWrong.innerHTML = '';
-//       return true;
-//     }
-//     else
-//     {
-//       // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
-//       quantityId.style.backgroundColor = "red";
-//       nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
-//       return false;
-//     }
-//   });
-
-// TEST Séparation addEventListener de la function quantityCheck() associée
 let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
 let quantityId = document.getElementById("quantityId"); // input id
 let nbrWrong = document.getElementById("nbrWrong"); // p id
@@ -273,19 +173,9 @@ function quantityCheck()
     return false;
   }
 }
-// TEST
-
-
-
-
-
-
-
 
 // Exercice 5
 // Selectionner un bouton radio --> Obligatoire
-
-// TEST Séparation addEventListener de la function radioCheck() associée
 // let radiosName = document.getElementsByName("location");
 let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
 let locationWrong = document.getElementById("locationWrong"); // id class
@@ -334,7 +224,6 @@ function radioCheck()
 // Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
 // Page 221 Tout JavaScript
-
 function checkboxBtnCheck()
 {
   // let checkBoxData = document.querySelectorAll("#checkbox1, #checkbox2")
