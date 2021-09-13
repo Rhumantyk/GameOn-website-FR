@@ -53,7 +53,6 @@ function closeAnimationModal()
   }
 }
 
-// Exercice 2 
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
 let firstName = document.getElementById("first"); // input id
@@ -98,7 +97,6 @@ function lastNameCheck()
   }
 }
 
-// Exercice 3
 // Email
 let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -122,7 +120,7 @@ function emailCheck()
   }
 }
 
-// Exercice Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec ou sans erreur(s)
+// Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec ou sans erreur(s)
 let birthdayId = document.getElementById("birthdate"); // input id
 // let regexBirthday = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
 let regexBirthday = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
@@ -146,10 +144,6 @@ function birthdateCheck()
   }
 }
 
-
-
-
-// Exercice 4
 // Nombre de concours --> Valeur numérique
 let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
 let quantityId = document.getElementById("quantityId"); // input id
@@ -174,13 +168,14 @@ function quantityCheck()
   }
 }
 
-// Exercice 5
 // Selectionner un bouton radio --> Obligatoire
 // let radiosName = document.getElementsByName("location");
+// radiosName.checked = true;
 let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
+locationsId.checked = true;
 let locationWrong = document.getElementById("locationWrong"); // id class
 locationWrong.innerHTML = '';
-// locationsId.addEventListener("click", radioCheck, true);
+// locationsId.addEventListener("click", radioCheck, true); // Ne fonctionne pas parce que radio btn mutliples ?
 locationsId.forEach( locationsId => locationsId.addEventListener("click", radioCheck, true));
 
 function radioCheck()
@@ -188,7 +183,7 @@ function radioCheck()
   if(locationsId.checked)
   {
     locationWrong.innerHTML = '';
-    return true
+    return true;
   }
   else
   {
