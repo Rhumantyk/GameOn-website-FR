@@ -173,10 +173,12 @@ function quantityCheck()
 // radiosName.checked = true;
 let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
 locationsId.checked = true;
-let locationWrong = document.getElementById("locationWrong"); // id class
+let locationWrong = document.getElementById("locationWrong"); // id p
 locationWrong.innerHTML = '';
-// locationsId.addEventListener("click", radioCheck, true); // Ne fonctionne pas parce que radio btn mutliples ?
-locationsId.forEach( locationsId => locationsId.addEventListener("click", radioCheck, true));
+for(var i = 0;i < locationsId.length-1;i++)
+{
+locationsId[i].addEventListener("click", radioCheck, true); // for() et [i] rajoutés --> Echec.
+// locationsId.forEach( locationsId => locationsId.addEventListener("click", radioCheck, true));
 
 function radioCheck()
 {
@@ -190,6 +192,8 @@ function radioCheck()
     locationWrong.innerHTML = "Veuillez choisir une ville";
     return false;
   }
+}
+
 }
 // // TEST
 
