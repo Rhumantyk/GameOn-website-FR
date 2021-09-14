@@ -17,7 +17,7 @@ const modalBtn = document.querySelectorAll(".modal-btn"); // Une des classes du 
 const formData = document.querySelectorAll(".formData"); // Classes des entrées (champs de texte/btn radio/checkbox) du formulaire.
 const modalCloseBtn = document.querySelectorAll(".close") // classe du bouton "X" de la modale
 
-// Ouverture de la modale via le btn "X"
+// Ouverture de la modale via le btn "C'est parti"
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
@@ -246,7 +246,7 @@ function checkboxBtnCheck()
 
 
 // Disabled Btn submit
-// Page 215 Tout JavaScript --> Attribut disabled // Echec atm
+// Page 215 Tout JavaScript --> Attribut disabled // Incomplet
 function buttonAccess()
 {
   let buttonSubmit = document.getElementsByClassName("btn-submit");
