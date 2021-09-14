@@ -225,8 +225,9 @@ function radioCheck()
 // Page 221 Tout JavaScript
 function checkboxBtnCheck()
 {
-  // let checkBoxData = document.querySelectorAll("#checkbox1, #checkbox2")
-  let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
+  let checkBoxData = document.querySelectorAll("#checkbox1")
+  // let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
+  checkBoxData.checked = true;
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
   if (checkBoxData.checked)
@@ -251,23 +252,20 @@ function buttonAccess()
   let buttonSubmit = document.getElementsByClassName("btn-submit");
   if(validate(false))
   {
-    buttonSubmit.classList.add("btn-submit-disabled");
+    buttonSubmit.classList.add("btnSubmitDisabled");
   }
   else
   {
-    buttonSubmit.classList.remove("btn-submit-disabled");
+    buttonSubmit.classList.remove("btnSubmitDisabled");
   }
 }
 
 
-// Quand formulaire faux, ne pas effacer les données
-// event.preventDefault
+// Exercice Formulaire valide lors du clique sur Submit + sauvegarder données si faux
 let formName = document.getElementsByClassName(".form");
 formName.addEventListener("submit", validate);
-// Exercice Formulaire valide lors du clique sur Submit
 function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate();" 
 {
-  formName.disabled = true;
   if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true) && radioCheck(true) && checkboxBtnCheck(true))
   {
     alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
@@ -276,7 +274,7 @@ function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate()
   else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdateCheck(false) || quantityCheck(false) || radioCheck(true) || checkboxBtnCheck(true)) // || radioCheck(true) || checkboxBtnCheck(true)
   {
     alert('Test faux'); // À enlever lorsque tout fonctionnera
-    // evt.preventDefault();
+    // evt.preventDefault(); // Utile ou non ici ?
     return false;
   }
 }
