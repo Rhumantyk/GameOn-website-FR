@@ -173,38 +173,60 @@ let locations = document.getElementsByName("location"); // input name
 let locationWrong = document.getElementById("locationWrong"); // id p
 locationWrong.innerHTML = '';
 // locations.addEventListener("click", radioCheck, true);
-for(let location of locations) // for ... of à utliser
-{
-  // console.log(locations);
-  function radioCheck()
-  {
-    if(!location.checked)
-    {
-      locationWrong.innerHTML = "Veuillez choisir une ville";
-      return false;
-    }
-    else(location.checked)
-    {
-      locationWrong.innerHTML = '';
-      return true;
-    }
-  }
-// TEST
-// for(var i=0; i<locations.length; i++)
+// for(const location of locations)
 // {
-//   if(!locations[i].checked)
+//   location.addEventListener("click", radioCheck, true);
+//   // console.log(locationWrong);
+//   function radioCheck()
 //   {
+//     if(!location.checked)
+//     {
 //       locationWrong.innerHTML = "Veuillez choisir une ville";
 //       return false;
+//     }
+//     else(location.checked)
+//     {
+//       locationWrong.innerHTML = '';
+//       return true;
+//     }
 //   }
-//   else
+// }
+
+// TEST
+// function radioCheck()
+// {
+//   for(var i = 0; i < locations.length; i++)
 //   {
+//     if(!locations[i].checked)
+//     {
+//       locationWrong.innerHTML = "Veuillez choisir une ville";
+//       return false;
+//     }
+//     else
+//     {
 //       locationWrong.innerHTML = '';
 //       return true; 
+//     }
 //   }
 // }
 // TEST
+
+// TEST
+let ville1 = document.getElementById("location1");
+function radioCheck()
+{
+  if(!ville1.checked)
+  {
+    locationWrong.innerHTML = "Veuillez choisir une ville";
+    return false;
+  }
+  else
+  {
+    locationWrong.innerHTML = '';
+    return true;
+  }
 }
+// TEST
 
 
 
@@ -283,7 +305,7 @@ let btnsubmit = document.getElementById("btnsubmit");
 btnsubmit.addEventListener("submit", validate);
 function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(event);" 
 {
-  if(firstNameCheck() == true && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && radioCheck() && checkboxBtnCheck()) // function() == true
+  if(firstNameCheck() == true && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && radioCheck() == true && checkboxBtnCheck()) // function() == true
   {
     alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
     return true;
