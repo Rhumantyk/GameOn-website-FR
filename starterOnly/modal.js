@@ -225,18 +225,18 @@ function radioCheck()
 // Page 221 Tout JavaScript
 function checkboxBtnCheck()
 {
-  let checkBoxData = document.querySelectorAll("#checkbox1")
+  let checkBoxData = document.getElementById("checkbox1").checked;
   // let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
-  checkBoxData.checked = true;
+  // checkBoxData.checked = true;
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
-  if (checkBoxData.checked)
+  if (checkBoxData.checked = true)
   {
-    alert('Test vrai');
+    alert('Test btnCheckBox vrai');
     dataWrong.innerHTML = '';
     return true;
   }
-  else
+  else(!checkBoxData.checked)
   {
     dataWrong.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation";
     return false;
@@ -246,7 +246,7 @@ function checkboxBtnCheck()
 
 
 // Disabled Btn submit
-// Page 215 Tout JavaScript --> Attribut disabled
+// Page 215 Tout JavaScript --> Attribut disabled // Echec atm
 function buttonAccess()
 {
   let buttonSubmit = document.getElementsByClassName("btn-submit");
@@ -264,7 +264,7 @@ function buttonAccess()
 // Exercice Formulaire valide lors du clique sur Submit + sauvegarder données si faux
 let formName = document.getElementsByClassName(".form");
 formName.addEventListener("submit", validate);
-function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate();" 
+function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(event);" 
 {
   if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true) && radioCheck(true) && checkboxBtnCheck(true))
   {
