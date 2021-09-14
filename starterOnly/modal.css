@@ -584,7 +584,7 @@ footer {
 }
 
 /* Ajout */
-@media (min-width: 769px) and (max-width: 1023px)
+@media (min-width: 768px) and (max-width: 1023px)
 {
   .hero-headline
   {
@@ -594,12 +594,15 @@ footer {
 
 
 /* keyframes */
-@keyframes modalopen {
-  from {
+@keyframes modalopen
+{
+  from
+  {
     opacity: 0;
     transform: translateY(-150px);
   }
-  to {
+  to
+  {
     opacity: 1;
   }
 }
