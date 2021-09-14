@@ -213,15 +213,22 @@ locationWrong.innerHTML = '';
 
 // TEST
 let ville1 = document.getElementById("location1");
+let ville2 = document.getElementById("location2");
+let ville3 = document.getElementById("location3");
+let ville4 = document.getElementById("location4");
+let ville5 = document.getElementById("location5");
+let ville6 = document.getElementById("location6");
+let villes = document.getElementsByName("location");
 function radioCheck()
 {
-  if(!ville1.checked)
+  if(!ville1.checked && !ville2.checked && !ville3.checked&& !ville4.checked && !ville5.checked && !ville6.checked || villes.checked == '') // Fonctionne, mais à revoir
   {
     locationWrong.innerHTML = "Veuillez choisir une ville";
     return false;
   }
   else
   {
+    alert('location true')
     locationWrong.innerHTML = '';
     return true;
   }
