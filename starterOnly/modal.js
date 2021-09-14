@@ -123,13 +123,14 @@ function emailCheck()
 // Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec ou sans erreur(s)
 let birthdayId = document.getElementById("birthdate"); // input id
 // let regexBirthday = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
-let regexBirthday = /^\d{2}[./-]\d{2}[./-]\d{4}$/;
+let regexBirthday = /^\d{4}[./-]\d{2}[./-]\d{2}$/; // Qu'importe la localisation IP de l'utilisateur
 let birthdateWrong = document.getElementById("birthdateWrong"); // p id
 birthdateWrong.innerHTML = '';
 birthdayId.addEventListener("change", birthdateCheck, true);
 
 function birthdateCheck()
 {
+  console.log(birthdayId.value);
   if(birthdayId.value.match(regexBirthday))
   {
     birthdayId.style.backgroundColor = "white";
@@ -171,52 +172,30 @@ function quantityCheck()
 // Selectionner un bouton radio --> Obligatoire
 // let radiosName = document.getElementsByName("location");
 // radiosName.checked = true;
-let locationsId = document.querySelectorAll("#location1, #location2, #location3, #location4, #location5, #location6"); // input ids
-locationsId.checked = true;
-let locationWrong = document.getElementById("locationWrong"); // id p
-locationWrong.innerHTML = '';
-for(var i = 0;i < locationsId.length-1;i++)
+
+for(var i = 0;i < locationsId.length-1;i++) // for ... of à utliser
 {
-locationsId[i].addEventListener("click", radioCheck, true); // for() et [i] rajoutés --> Echec.
+  locations[i].addEventListener("click", radioCheck, true); // for() et [i] rajoutés --> Echec.
 // locationsId.forEach( locationsId => locationsId.addEventListener("click", radioCheck, true));
 
-function radioCheck()
-{
-  if(locationsId.checked)
+  function radioCheck()
   {
-    locationWrong.innerHTML = '';
-    return true;
-  }
-  else
-  {
-    locationWrong.innerHTML = "Veuillez choisir une ville";
-    return false;
+  let locations = document.getElementsByName("location"); // input name
+  let locationWrong = document.getElementById("locationWrong"); // id p
+  locationWrong.innerHTML = '';
+  // Mettre le boucle for(const = locations of locations) ...
+    if(locations.checked)
+    {
+      locationWrong.innerHTML = '';
+      return true;
+    }
+    else
+    {
+      locationWrong.innerHTML = "Veuillez choisir une ville";
+      return false; // Par défaut ! Sinon, erreur = false.
+    }
   }
 }
-
-}
-// // TEST
-
-// TEST 2
-// function radioCheck()
-// {
-// let radiosName = document.getElementsByName("location");
-
-//   for (let i = 0, len = radiosName.length; i < len; i++) // Comment traduire ça ?
-//   {
-//     if (radiosName[i].checked) 
-//     {
-//       locationWrong.innerHTML = '';
-//       return true
-//     }
-//     else
-//     {
-//       locationWrong.innerHTML = "Veuillez choisir une ville";
-//       return false;
-//     }
-//   }
-// }
-// FIN TEST 2
 
 
 
@@ -225,18 +204,18 @@ function radioCheck()
 // Page 221 Tout JavaScript
 function checkboxBtnCheck()
 {
-  let checkBoxData = document.getElementById("checkbox1").checked;
+  let checkBoxData = document.getElementById("checkbox1");
   // let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
   // checkBoxData.checked = true;
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
-  if (checkBoxData.checked = true)
+  if (checkBoxData.checked)
   {
     alert('Test btnCheckBox vrai');
     dataWrong.innerHTML = '';
     return true;
   }
-  else(!checkBoxData.checked)
+  else
   {
     dataWrong.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation";
     return false;
@@ -262,16 +241,16 @@ function buttonAccess()
 
 
 // Exercice Formulaire valide lors du clique sur Submit + sauvegarder données si faux
-let formName = document.getElementsByClassName(".form");
-formName.addEventListener("submit", validate);
+let btnsubmit = document.getElementById("btnsubmit");
+btnsubmit.addEventListener("submit", validate);
 function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(event);" 
 {
-  if(firstNameCheck(true) && lastNameCheck(true) && emailCheck(true) && birthdateCheck && quantityCheck(true) && radioCheck(true) && checkboxBtnCheck(true))
+  if(firstNameCheck() == true && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && radioCheck() && checkboxBtnCheck()) // function() == true
   {
     alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
     return true;
   }
-  else(firstNameCheck(false) || lastNameCheck(false) || emailCheck(false) || birthdateCheck(false) || quantityCheck(false) || radioCheck(true) || checkboxBtnCheck(true)) // || radioCheck(true) || checkboxBtnCheck(true)
+  else
   {
     alert('Test faux'); // À enlever lorsque tout fonctionnera
     // evt.preventDefault(); // Utile ou non ici ?
