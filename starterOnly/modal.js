@@ -130,7 +130,6 @@ birthdayId.addEventListener("change", birthdateCheck, true);
 
 function birthdateCheck()
 {
-  console.log(birthdayId.value);
   if(birthdayId.value.match(regexBirthday))
   {
     birthdayId.style.backgroundColor = "white";
@@ -170,32 +169,71 @@ function quantityCheck()
 }
 
 // Selectionner un bouton radio --> Obligatoire
-// let radiosName = document.getElementsByName("location");
-// radiosName.checked = true;
-
-for(var i = 0;i < locationsId.length-1;i++) // for ... of à utliser
+let locations = document.getElementsByName("location"); // input name
+let locationWrong = document.getElementById("locationWrong"); // id p
+locationWrong.innerHTML = '';
+// locations.addEventListener("click", radioCheck, true);
+for(let location of locations) // for ... of à utliser
 {
-  locations[i].addEventListener("click", radioCheck, true); // for() et [i] rajoutés --> Echec.
-// locationsId.forEach( locationsId => locationsId.addEventListener("click", radioCheck, true));
-
+  // console.log(locations);
   function radioCheck()
   {
-  let locations = document.getElementsByName("location"); // input name
-  let locationWrong = document.getElementById("locationWrong"); // id p
-  locationWrong.innerHTML = '';
-  // Mettre le boucle for(const = locations of locations) ...
-    if(locations.checked)
+    if(!location.checked)
+    {
+      locationWrong.innerHTML = "Veuillez choisir une ville";
+      return false;
+    }
+    else(location.checked)
     {
       locationWrong.innerHTML = '';
       return true;
     }
-    else
-    {
-      locationWrong.innerHTML = "Veuillez choisir une ville";
-      return false; // Par défaut ! Sinon, erreur = false.
-    }
   }
+// TEST
+// for(var i=0; i<locations.length; i++)
+// {
+//   if(!locations[i].checked)
+//   {
+//       locationWrong.innerHTML = "Veuillez choisir une ville";
+//       return false;
+//   }
+//   else
+//   {
+//       locationWrong.innerHTML = '';
+//       return true; 
+//   }
+// }
+// TEST
 }
+
+
+
+// TEST
+// let locations = document.getElementsByName("location"); // input name
+// // // let locations = document.querySelector('input[name="location"]:checked');
+// // let locationWrong = document.getElementById("locationWrong"); // id p
+// // locationWrong.innerHTML = '';
+// for(const location of locations) // for ... of à utliser
+// {
+//   location.addEventListener("click", radioCheck, true);
+
+//   function radioCheck()
+//   { 
+//   let locationWrong = document.getElementById("locationWrong"); // id p
+//   locationWrong.innerHTML = '';      
+//     if(!locations.checked)
+//     {
+//       locationWrong.innerHTML = "Veuillez choisir une ville";
+//       return false;
+//     }
+//     else
+//     {
+//       locationWrong.innerHTML = '';
+//       return true;
+//     }
+//   }
+// }
+// TEST
 
 
 
