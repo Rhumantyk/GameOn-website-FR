@@ -221,20 +221,23 @@ let ville6 = document.getElementById("location6");
 let villes = document.getElementsByName("location");
 function radioCheck()
 {
-  if(!ville1.checked && !ville2.checked && !ville3.checked&& !ville4.checked && !ville5.checked && !ville6.checked || villes.checked == '') // Fonctionne, mais à revoir
+
+  if(ville1.checked || ville2.checked || ville3.checked || ville4.checked || ville5.checked || ville6.checked)
   {
-    locationWrong.innerHTML = "Veuillez choisir une ville";
-    return false;
-  }
-  else
-  {
-    alert('location true')
+    alert('location true');
     locationWrong.innerHTML = '';
     return true;
+  }
+  if(!ville1.checked && !ville2.checked && !ville3.checked && !ville4.checked && !ville5.checked && !ville6.checked) // Fonctionne partiellement, mais à revoir
+  {
+    alert('location false');
+    locationWrong.innerHTML = "Veuillez choisir une ville";
+    return false;
   }
 }
 // TEST
 
+// TEST
 
 
 // TEST
