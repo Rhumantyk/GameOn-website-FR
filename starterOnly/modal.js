@@ -37,22 +37,6 @@ function closeModal() // Fermeture modal
   modalbg.style.display = "none";
 }
 
-// Tentative optionnelle : Animation fermeture modal ------------------ Echec
-// Pourtant : https://www.w3schools.com/jsref/prop_style_animationname.asp
-// function closeAnimationModal()
-// {
-//   let contentAnimationClose = document.getElementById("content");
-
-//   if (launchModal)
-//   {
-//     contentAnimationClose.style.animationName = "modalopen";
-//   }
-//   else if (closeModal)
-//   {
-//     contentAnimationClose.style.animationName = "modalclose";
-//   }
-// }
-
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
 let firstName = document.getElementById("first"); // input id
@@ -167,78 +151,6 @@ function quantityCheck()
 }
 
 // Selectionner un bouton radio --> Obligatoire
-// let locations = document.getElementsByName("location"); // input name
-// let locationWrong = document.getElementById("locationWrong"); // id p
-// locationWrong.innerHTML = '';
-// locations.addEventListener("click", radioCheck, true);
-// for(const location of locations)
-// {
-//   location.addEventListener("click", radioCheck, true);
-//   // console.log(locationWrong);
-//   function radioCheck()
-//   {
-//     if(!location.checked)
-//     {
-//       locationWrong.innerHTML = "Veuillez choisir une ville";
-//       return false;
-//     }
-//     else(location.checked)
-//     {
-//       locationWrong.innerHTML = '';
-//       return true;
-//     }
-//   }
-// }
-
-// TEST
-// function radioCheck()
-// {
-//   for(var i = 0; i < locations.length; i++)
-//   {
-//     if(!locations[i].checked)
-//     {
-//       locationWrong.innerHTML = "Veuillez choisir une ville";
-//       return false;
-//     }
-//     else
-//     {
-//       locationWrong.innerHTML = '';
-//       return true; 
-//     }
-//   }
-// }
-// TEST
-
-// TEST
-// let ville1 = document.getElementById("location1");
-// let ville2 = document.getElementById("location2");
-// let ville3 = document.getElementById("location3");
-// let ville4 = document.getElementById("location4");
-// let ville5 = document.getElementById("location5");
-// let ville6 = document.getElementById("location6");
-// let villes = document.getElementsByName("location");
-// function radioCheck()
-// {
-
-//   if(ville1.checked || ville2.checked || ville3.checked || ville4.checked || ville5.checked || ville6.checked)
-//   {
-//     alert('location true');
-//     locationWrong.innerHTML = '';
-//     return true;
-//   }
-//   if(!ville1.checked && !ville2.checked && !ville3.checked && !ville4.checked && !ville5.checked && !ville6.checked) // Fonctionne partiellement, mais à revoir
-//   {
-//     alert('location false');
-//     locationWrong.innerHTML = "Veuillez choisir une ville";
-//     return false;
-//   }
-// }
-// TEST
-
-// TEST
-
-
-// TEST
 function checkRadioButtons()
 {
   let locationArray = [];
@@ -255,7 +167,7 @@ function checkRadioButtons()
   locationArray.unshift(ville2);
   locationArray.unshift(ville1);
   let locationWrong = document.getElementById("locationWrong"); // id p
-  locationWrong.innerHTML = '12';
+  locationWrong.innerHTML = '';
   console.log(locationArray);
   for(const location of locationArray) // for ... of à utliser
   {
@@ -270,7 +182,6 @@ function checkRadioButtons()
   locationWrong.innerHTML = "Veuillez choisir une ville";
   return false;
 }
-// TEST
 
 // Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
@@ -323,16 +234,4 @@ function validateForm() // C'est ce qui dit que c'est envoyé/validé. Cf dans l
   console.log(firstName + ' ' + lastName);
   alert() // firstName, lastName a été validé etc ...
   return firstName, lastName;
-
-}
-
-// Disabled Btn submit 
-// Page 215 Tout JavaScript --> Attribut disabled // Incomplet
-function buttonAccess() // Un while ne serait-il pas plus judicieux ici ?
-{
-  let buttonSubmit = document.getElementById("btnsubmit");
-  if(validate(true))
-  {
-    buttonSubmit.classList.remove("btnSubmitDisabled");
-  }
 }
