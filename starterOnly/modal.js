@@ -132,7 +132,7 @@ let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de
 let quantityId = document.getElementById("quantityId"); // input id
 let nbrWrong = document.getElementById("nbrWrong"); // p id
 nbrWrong.innerHTML = '';
-quantityId.addEventListener("keydown", quantityCheck, true);
+quantityId.addEventListener("change", quantityCheck, true);
 
 function quantityCheck()
 {
