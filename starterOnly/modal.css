@@ -197,21 +197,6 @@ main {
   padding-top: 10px;
 }
 
-/* .contentClose Tentative animation fermeture modal */
-/* {
-  margin: 5% auto;
-  width: 100%;
-  max-width: 500px;
-  animation-name: modalclose;
-  animation-duration: var(--modal-duration);
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
-} */
-
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
@@ -580,6 +565,10 @@ footer {
   }
 }
 
+.wrong
+{
+  text-align: initial;
+}
 
 /* keyframes */
 @keyframes modalopen

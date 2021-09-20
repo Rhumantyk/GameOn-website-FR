@@ -207,10 +207,8 @@ let btnsubmit = document.getElementById("btnsubmit");
 btnsubmit.addEventListener("click", validate, true);
 function validate() // Événement du clic.
 {
-  if(firstNameCheck() && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && checkRadioButtons() && checkboxBtnCheck()) // function() == true
+  if(firstNameCheck() && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && checkRadioButtons() && checkboxBtnCheck())
   {
-    // alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
-    // Dans le validateForm, ajouter à l'alerte firstame et lastName comme suit : L'utilisateur machin à été validé".
     return true;
   }
   else
@@ -224,5 +222,5 @@ function validateForm() // C'est ce qui dit que c'est envoyé/validé. Cf dans l
   let firstName = document.getElementById("first").value; // input id
   let lastName = document.getElementById("last").value; // input id
   alert('Merci' + ' ' + firstName + ' ' + lastName + '.\nVotre réservation a bien été reçue, et envoyée.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
-  // return firstName, lastName;
+  return firstName, lastName;
 }
