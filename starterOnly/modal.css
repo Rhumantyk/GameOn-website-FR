@@ -365,7 +365,7 @@ input[data-error]::after {
   border: 0;
 }
 
-.btnSubmitDisabled
+.btnSubmitDisabled /* Ajout pour disabled btn */
 {
   background: grey;
   display: block;

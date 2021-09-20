@@ -58,7 +58,7 @@ function closeAnimationModal()
 let firstName = document.getElementById("first"); // input id
 let firstWrong = document.getElementById("firstWrong"); // p id
 firstWrong.innerHTML = '';
-firstName.addEventListener("change", firstNameCheck, true); // true est-il necessaire ici ?
+firstName.addEventListener("change", firstNameCheck, true);
 
 function firstNameCheck()
 {
@@ -120,10 +120,9 @@ function emailCheck()
   }
 }
 
-// Date de naissance --> Le p ne s'affiche que quand on a rempli complètement le champ avec ou sans erreur(s)
+// Date de naissance
 let birthdayId = document.getElementById("birthdate"); // input id
-// let regexBirthday = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
-let regexBirthday = /^\d{4}[./-]\d{2}[./-]\d{2}$/; // Qu'importe la localisation IP de l'utilisateur
+let regexBirthday = /^\d{4}[./-]\d{2}[./-]\d{2}$/; // Qu'importe la localisation IP de l'utilisateur, le navigateur s'en charge
 let birthdateWrong = document.getElementById("birthdateWrong"); // p id
 birthdateWrong.innerHTML = '';
 birthdayId.addEventListener("change", birthdateCheck, true);
@@ -161,7 +160,6 @@ function quantityCheck()
   }
   else
   {
-    // e.preventDefault(); // Empêche l'utilisateur de supprimer n'importe quel caractère inscrit.
     quantityId.style.backgroundColor = "red";
     nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
     return false;
@@ -278,8 +276,6 @@ for(const location of locationArray) // for ... of à utliser
 }
 // TEST
 
-
-
 // Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
 // Page 221 Tout JavaScript
@@ -303,25 +299,7 @@ function checkboxBtnCheck()
   }
 }
 
-
-
-// Disabled Btn submit
-// Page 215 Tout JavaScript --> Attribut disabled // Incomplet
-function buttonAccess()
-{
-  let buttonSubmit = document.getElementsByClassName("btn-submit");
-  if(validate(false))
-  {
-    buttonSubmit.classList.add("btnSubmitDisabled");
-  }
-  else
-  {
-    buttonSubmit.classList.remove("btnSubmitDisabled");
-  }
-}
-
-
-// Exercice Formulaire valide lors du clique sur Submit + sauvegarder données si faux
+// Exercice Formulaire valide lors du clique sur Submit + Sauvegarde des données si faux
 let btnsubmit = document.getElementById("btnsubmit");
 btnsubmit.addEventListener("submit", validate);
 function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(event);" 
@@ -334,7 +312,17 @@ function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(e
   else
   {
     alert('Test faux'); // À enlever lorsque tout fonctionnera
-    // evt.preventDefault(); // Utile ou non ici ?
     return false;
+  }
+}
+
+// Disabled Btn submit
+// Page 215 Tout JavaScript --> Attribut disabled // Incomplet
+function buttonAccess()
+{
+  let buttonSubmit = document.getElementById("btnsubmit");
+  if(validate(true))
+  {
+    buttonSubmit.classList.remove("btnSubmitDisabled");
   }
 }
