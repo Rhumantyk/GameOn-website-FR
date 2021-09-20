@@ -185,17 +185,13 @@ function checkRadioButtons()
 
 // Exercice 6
 // Condition générales cochés de facto. L'autre case peut-être délaissée.
-// Page 221 Tout JavaScript
 function checkboxBtnCheck()
 {
   let checkBoxData = document.getElementById("checkbox1");
-  // let checkBoxData = document.querySelectorAll('input[name="checkData"]'); // input name
-  // checkBoxData.checked = true;
   let dataWrong = document.getElementById("dataWrong"); // p id
   dataWrong.innerHTML = '';
   if (checkBoxData.checked)
   {
-    alert('Test btnCheckBox vrai');
     dataWrong.innerHTML = '';
     return true;
   }
@@ -211,27 +207,22 @@ let btnsubmit = document.getElementById("btnsubmit");
 btnsubmit.addEventListener("click", validate, true);
 function validate() // Événement du clic.
 {
-  // alert('validate');
   if(firstNameCheck() && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && checkRadioButtons() && checkboxBtnCheck()) // function() == true
   {
-    alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
+    // alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
     // Dans le validateForm, ajouter à l'alerte firstame et lastName comme suit : L'utilisateur machin à été validé".
     return true;
   }
   else
   {
-    // alert('Test faux'); // À enlever lorsque tout fonctionnera
     return false;
   }
 }
 
-function validateForm() // C'est ce qui dit que c'est envoyé/validé. Cf dans l'HTML, Form --> onsubmit="return validate(event);"
-//
+function validateForm() // C'est ce qui dit que c'est envoyé/validé. Cf dans l'HTML, Form --> onsubmit="return validateForm();"
 {
-  // alert('validateForm');
-  let firstName = document.getElementById("first"); // input id
-  let lastName = document.getElementById("last"); // input id
-  console.log(firstName + ' ' + lastName);
-  alert() // firstName, lastName a été validé etc ...
-  return firstName, lastName;
+  let firstName = document.getElementById("first").value; // input id
+  let lastName = document.getElementById("last").value; // input id
+  alert('Merci' + ' ' + firstName + ' ' + lastName + '.\nVotre réservation a bien été reçue, et envoyée.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
+  // return firstName, lastName;
 }
