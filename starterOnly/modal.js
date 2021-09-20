@@ -169,9 +169,9 @@ function quantityCheck()
 }
 
 // Selectionner un bouton radio --> Obligatoire
-let locations = document.getElementsByName("location"); // input name
-let locationWrong = document.getElementById("locationWrong"); // id p
-locationWrong.innerHTML = '';
+// let locations = document.getElementsByName("location"); // input name
+// let locationWrong = document.getElementById("locationWrong"); // id p
+// locationWrong.innerHTML = '';
 // locations.addEventListener("click", radioCheck, true);
 // for(const location of locations)
 // {
@@ -212,59 +212,70 @@ locationWrong.innerHTML = '';
 // TEST
 
 // TEST
+// let ville1 = document.getElementById("location1");
+// let ville2 = document.getElementById("location2");
+// let ville3 = document.getElementById("location3");
+// let ville4 = document.getElementById("location4");
+// let ville5 = document.getElementById("location5");
+// let ville6 = document.getElementById("location6");
+// let villes = document.getElementsByName("location");
+// function radioCheck()
+// {
+
+//   if(ville1.checked || ville2.checked || ville3.checked || ville4.checked || ville5.checked || ville6.checked)
+//   {
+//     alert('location true');
+//     locationWrong.innerHTML = '';
+//     return true;
+//   }
+//   if(!ville1.checked && !ville2.checked && !ville3.checked && !ville4.checked && !ville5.checked && !ville6.checked) // Fonctionne partiellement, mais à revoir
+//   {
+//     alert('location false');
+//     locationWrong.innerHTML = "Veuillez choisir une ville";
+//     return false;
+//   }
+// }
+// TEST
+
+// TEST
+
+
+// TEST
+let locationArray = [];
 let ville1 = document.getElementById("location1");
 let ville2 = document.getElementById("location2");
 let ville3 = document.getElementById("location3");
 let ville4 = document.getElementById("location4");
 let ville5 = document.getElementById("location5");
 let ville6 = document.getElementById("location6");
-let villes = document.getElementsByName("location");
-function radioCheck()
+locationArray.unshift(ville6);
+locationArray.unshift(ville5);
+locationArray.unshift(ville4);
+locationArray.unshift(ville3);
+locationArray.unshift(ville2);
+locationArray.unshift(ville1);
+// let locations = document.getElementsByName("location"); // input name
+for(const location of locationArray) // for ... of à utliser
 {
+  location.addEventListener("click", radioCheck, true);
+  console.log(location);
 
-  if(ville1.checked || ville2.checked || ville3.checked || ville4.checked || ville5.checked || ville6.checked)
-  {
-    alert('location true');
-    locationWrong.innerHTML = '';
-    return true;
-  }
-  if(!ville1.checked && !ville2.checked && !ville3.checked && !ville4.checked && !ville5.checked && !ville6.checked) // Fonctionne partiellement, mais à revoir
-  {
-    alert('location false');
-    locationWrong.innerHTML = "Veuillez choisir une ville";
-    return false;
+  function radioCheck()
+  { 
+  let locationWrong = document.getElementById("locationWrong"); // id p
+  locationWrong.innerHTML = '';      
+    if(!locationArray.checked)
+    {
+      locationWrong.innerHTML = "Veuillez choisir une ville";
+      return false;
+    }
+    else
+    {
+      locationWrong.innerHTML = '';
+      return true;
+    }
   }
 }
-// TEST
-
-// TEST
-
-
-// TEST
-// let locations = document.getElementsByName("location"); // input name
-// // // let locations = document.querySelector('input[name="location"]:checked');
-// // let locationWrong = document.getElementById("locationWrong"); // id p
-// // locationWrong.innerHTML = '';
-// for(const location of locations) // for ... of à utliser
-// {
-//   location.addEventListener("click", radioCheck, true);
-
-//   function radioCheck()
-//   { 
-//   let locationWrong = document.getElementById("locationWrong"); // id p
-//   locationWrong.innerHTML = '';      
-//     if(!locations.checked)
-//     {
-//       locationWrong.innerHTML = "Veuillez choisir une ville";
-//       return false;
-//     }
-//     else
-//     {
-//       locationWrong.innerHTML = '';
-//       return true;
-//     }
-//   }
-// }
 // TEST
 
 
