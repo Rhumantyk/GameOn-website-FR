@@ -106,7 +106,7 @@ function emailCheck()
 
 // Date de naissance
 let birthdayId = document.getElementById("birthdate"); // input id
-let regexBirthday = /^\d{4}[./-]\d{2}[./-]\d{2}$/; // Qu'importe la localisation IP de l'utilisateur, le navigateur s'en charge
+let regexBirthday = /^\d{4}[./-]\d{2}[./-]\d{2}$/; // Qu'importe la localisation IP de l'utilisateur, le navigateur se chargera de l'ordre
 let birthdateWrong = document.getElementById("birthdateWrong"); // p id
 birthdateWrong.innerHTML = '';
 birthdayId.addEventListener("change", birthdateCheck, true);
@@ -151,7 +151,7 @@ function quantityCheck()
 }
 
 // Selectionner un bouton radio --> Obligatoire
-function checkRadioButtons()
+function radioButtonsCheck()
 {
   let locationArray = [];
   let ville1 = document.getElementById("location1");
@@ -169,11 +169,10 @@ function checkRadioButtons()
   let locationWrong = document.getElementById("locationWrong"); // id p
   locationWrong.innerHTML = '';
   console.log(locationArray);
-  for(const location of locationArray) // for ... of à utliser
+  for(const location of locationArray)
   {
-    console.log(location.value); // .value = le value="nomdelaville" dans HTML.
-    console.log(location.checked);
-
+    // console.log(location.value); // .value = le value="nomdelaville" dans HTML.
+    // console.log(location.checked);
     if(location.checked)
     {
       return true;
@@ -202,12 +201,12 @@ function checkboxBtnCheck()
   }
 }
 
-// Exercice Formulaire valide lors du clique sur Submit + Sauvegarde des données si faux
+// Formulaire valide lors du clic sur Submit + Sauvegarde des données si faux
 let btnsubmit = document.getElementById("btnsubmit");
 btnsubmit.addEventListener("click", validate, true);
 function validate() // Événement du clic.
 {
-  if(firstNameCheck() && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && checkRadioButtons() && checkboxBtnCheck())
+  if(firstNameCheck() && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && radioButtonsCheck() && checkboxBtnCheck())
   {
     return true;
   }
@@ -217,7 +216,7 @@ function validate() // Événement du clic.
   }
 }
 
-function validateForm() // C'est ce qui dit que c'est envoyé/validé. Cf dans l'HTML, Form --> onsubmit="return validateForm();"
+function validateForm() // C'est ce qui fait que c'est envoyé/validé. Cf dans l'HTML, Form --> onsubmit="return validateForm();"
 {
   let firstName = document.getElementById("first").value; // input id
   let lastName = document.getElementById("last").value; // input id
