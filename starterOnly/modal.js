@@ -318,7 +318,7 @@ function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(e
 
 // Disabled Btn submit
 // Page 215 Tout JavaScript --> Attribut disabled // Incomplet
-function buttonAccess()
+function buttonAccess() // Un while ne serait-il pas plus judicieux ici ?
 {
   let buttonSubmit = document.getElementById("btnsubmit");
   if(validate(true))
