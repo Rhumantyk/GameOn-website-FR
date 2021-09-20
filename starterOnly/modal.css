@@ -420,6 +420,7 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 16px;
+  margin-top: 69.78px; /* Ajout */
 }
 .hero-section {
   min-height: 93vh;
