@@ -39,19 +39,19 @@ function closeModal() // Fermeture modal
 
 // Tentative optionnelle : Animation fermeture modal ------------------ Echec
 // Pourtant : https://www.w3schools.com/jsref/prop_style_animationname.asp
-function closeAnimationModal()
-{
-  let contentAnimationClose = document.getElementById("content");
+// function closeAnimationModal()
+// {
+//   let contentAnimationClose = document.getElementById("content");
 
-  if (launchModal)
-  {
-    contentAnimationClose.style.animationName = "modalopen";
-  }
-  else if (closeModal)
-  {
-    contentAnimationClose.style.animationName = "modalclose";
-  }
-}
+//   if (launchModal)
+//   {
+//     contentAnimationClose.style.animationName = "modalopen";
+//   }
+//   else if (closeModal)
+//   {
+//     contentAnimationClose.style.animationName = "modalclose";
+//   }
+// }
 
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
@@ -84,7 +84,7 @@ lastName.addEventListener("change", lastNameCheck, true);
 
 function lastNameCheck()
 {
-  if(last.value.length < 2 | last.value.length == "")
+  if(last.value.length < 2)
   {
     lastName.style.backgroundColor = "red";
     lastWrong.innerHTML = "2 caractères minimum sont requis";
@@ -239,40 +239,36 @@ function quantityCheck()
 
 
 // TEST
-let locationArray = [];
-let ville1 = document.getElementById("location1");
-let ville2 = document.getElementById("location2");
-let ville3 = document.getElementById("location3");
-let ville4 = document.getElementById("location4");
-let ville5 = document.getElementById("location5");
-let ville6 = document.getElementById("location6");
-locationArray.unshift(ville6);
-locationArray.unshift(ville5);
-locationArray.unshift(ville4);
-locationArray.unshift(ville3);
-locationArray.unshift(ville2);
-locationArray.unshift(ville1);
-// let locations = document.getElementsByName("location"); // input name
-for(const location of locationArray) // for ... of à utliser
+function checkRadioButtons()
 {
-  location.addEventListener("click", radioCheck, true);
-  console.log(location);
-
-  function radioCheck()
-  { 
+  let locationArray = [];
+  let ville1 = document.getElementById("location1");
+  let ville2 = document.getElementById("location2");
+  let ville3 = document.getElementById("location3");
+  let ville4 = document.getElementById("location4");
+  let ville5 = document.getElementById("location5");
+  let ville6 = document.getElementById("location6");
+  locationArray.unshift(ville6);
+  locationArray.unshift(ville5);
+  locationArray.unshift(ville4);
+  locationArray.unshift(ville3);
+  locationArray.unshift(ville2);
+  locationArray.unshift(ville1);
   let locationWrong = document.getElementById("locationWrong"); // id p
-  locationWrong.innerHTML = '';
-    if(!ville1.checked && !ville2.checked && !ville3.checked && !ville4.checked && !ville5.checked && !ville6.checked) // !location.checked
+  locationWrong.innerHTML = '12';
+  console.log(locationArray);
+  for(const location of locationArray) // for ... of à utliser
+  {
+    console.log(location.value); // .value = le value="nomdelaville" dans HTML.
+    console.log(location.checked);
+
+    if(location.checked)
     {
-      locationWrong.innerHTML = "Veuillez choisir une ville";
-      return false;
-    }
-    else
-    {
-      locationWrong.innerHTML = '';
       return true;
     }
   }
+  locationWrong.innerHTML = "Veuillez choisir une ville";
+  return false;
 }
 // TEST
 
@@ -301,22 +297,36 @@ function checkboxBtnCheck()
 
 // Exercice Formulaire valide lors du clique sur Submit + Sauvegarde des données si faux
 let btnsubmit = document.getElementById("btnsubmit");
-btnsubmit.addEventListener("submit", validate);
-function validate(event) // Cf dans l'HTML, Form --> onsubmit="return validate(event);" 
+btnsubmit.addEventListener("click", validate, true);
+function validate() // Événement du clic.
 {
-  if(firstNameCheck() == true && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && radioCheck() == true && checkboxBtnCheck()) // function() == true
+  // alert('validate');
+  if(firstNameCheck() && lastNameCheck() && emailCheck() && birthdateCheck() && quantityCheck() && checkRadioButtons() && checkboxBtnCheck()) // function() == true
   {
     alert('Merci ! Votre réservation a été reçue.'); //  Issue#4 : Message de confirmation de la soumission réussie pour l'utilisateur
+    // Dans le validateForm, ajouter à l'alerte firstame et lastName comme suit : L'utilisateur machin à été validé".
     return true;
   }
   else
   {
-    alert('Test faux'); // À enlever lorsque tout fonctionnera
+    // alert('Test faux'); // À enlever lorsque tout fonctionnera
     return false;
   }
 }
 
-// Disabled Btn submit
+function validateForm() // C'est ce qui dit que c'est envoyé/validé. Cf dans l'HTML, Form --> onsubmit="return validate(event);"
+//
+{
+  // alert('validateForm');
+  let firstName = document.getElementById("first"); // input id
+  let lastName = document.getElementById("last"); // input id
+  console.log(firstName + ' ' + lastName);
+  alert() // firstName, lastName a été validé etc ...
+  return firstName, lastName;
+
+}
+
+// Disabled Btn submit 
 // Page 215 Tout JavaScript --> Attribut disabled // Incomplet
 function buttonAccess() // Un while ne serait-il pas plus judicieux ici ?
 {
