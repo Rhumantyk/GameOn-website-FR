@@ -263,8 +263,8 @@ for(const location of locationArray) // for ... of à utliser
   function radioCheck()
   { 
   let locationWrong = document.getElementById("locationWrong"); // id p
-  locationWrong.innerHTML = '';      
-    if(!locationArray.checked)
+  locationWrong.innerHTML = '';
+    if(!ville1.checked && !ville2.checked && !ville3.checked && !ville4.checked && !ville5.checked && !ville6.checked) // !location.checked
     {
       locationWrong.innerHTML = "Veuillez choisir une ville";
       return false;
