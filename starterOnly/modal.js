@@ -1,6 +1,6 @@
-function editNav() // Pourquoi en enlevant le else, rien ne change ? À quoi sert le else ici ?
+function editNav()
 {
-  var x = document.getElementById("myTopnav");
+  var x = document.getElementById("my-topnav");
   if (x.className === "topnav")
   {
     x.className += " responsive";
@@ -129,7 +129,7 @@ function birthdateCheck()
 
 // Nombre de concours --> Valeur numérique
 let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
-let quantityId = document.getElementById("quantityId"); // input id
+let quantityId = document.getElementById("quantity-id"); // input id
 let nbrWrong = document.getElementById("nbr-wrong"); // p id
 nbrWrong.innerHTML = '';
 quantityId.addEventListener("change", quantityCheck, true);
@@ -202,7 +202,7 @@ function checkboxBtnCheck()
 }
 
 // Formulaire valide lors du clic sur Submit + Sauvegarde des données si faux
-let btnsubmit = document.getElementById("btnsubmit");
+let btnsubmit = document.getElementById("btn-submit");
 btnsubmit.addEventListener("click", validate, true);
 function validate() // Événement du clic.
 {
