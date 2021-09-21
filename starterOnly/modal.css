@@ -247,6 +247,11 @@ input[data-error]::after {
     color: red;
 } */
 
+.formDataCheckBox
+{
+  margin-top: 30px;
+}
+
 /*Contenu des labels des btn radios/chackboxs */
 .checkbox-label,
 .checkbox2-label {
@@ -420,7 +425,7 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 16px;
-  margin-top: 69.78px; /* Ajout */
+  margin-top: 30px; /* Ajout */
 }
 .hero-section {
   min-height: 93vh;
@@ -566,8 +571,12 @@ footer {
   }
 }
 
-.wrong
+.wrong /* Ajout CSS pour les <p> smthWrong */
 {
+  font-family: var(--font-default);
+  font-size: 17px;
+  font-weight: normal;
+  display: inline-block;
   text-align: initial;
 }
 
