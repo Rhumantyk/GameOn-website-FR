@@ -187,7 +187,7 @@ function radioButtonsCheck()
 function checkboxBtnCheck()
 {
   let checkBoxData = document.getElementById("checkbox1");
-  let dataWrong = document.getElementById("dataWrong"); // p id
+  let dataWrong = document.getElementById("data-wrong"); // p id
   dataWrong.innerHTML = '';
   if (checkBoxData.checked)
   {
