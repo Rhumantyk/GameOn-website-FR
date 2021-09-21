@@ -40,7 +40,7 @@ function closeModal() // Fermeture modal
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
 let firstName = document.getElementById("first"); // input id
-let firstWrong = document.getElementById("firstWrong"); // p id
+let firstWrong = document.getElementById("first-wrong"); // p id
 firstWrong.innerHTML = '';
 firstName.addEventListener("change", firstNameCheck, true);
 
@@ -62,7 +62,7 @@ function firstNameCheck()
 
 // Nom : Minimum de 2 caractères + n'est pas vide
 let lastName = document.getElementById("last"); // input id
-let lastWrong = document.getElementById("lastWrong"); // p id
+let lastWrong = document.getElementById("last-wrong"); // p id
 lastWrong.innerHTML = '';
 lastName.addEventListener("change", lastNameCheck, true);
 
@@ -84,7 +84,7 @@ function lastNameCheck()
 // Email
 let email = document.getElementById("email"); // input id
 let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-let emailWrong = document.getElementById("emailWrong"); // p id
+let emailWrong = document.getElementById("email-wrong"); // p id
 emailWrong.innerHTML = '';
 email.addEventListener("change", emailCheck, true);
 
@@ -107,7 +107,7 @@ function emailCheck()
 // Date de naissance
 let birthdayId = document.getElementById("birthdate"); // input id
 let regexBirthday = /^\d{4}[./-]\d{2}[./-]\d{2}$/; // Qu'importe la localisation IP de l'utilisateur, le navigateur se chargera de l'ordre
-let birthdateWrong = document.getElementById("birthdateWrong"); // p id
+let birthdateWrong = document.getElementById("birthdate-wrong"); // p id
 birthdateWrong.innerHTML = '';
 birthdayId.addEventListener("change", birthdateCheck, true);
 
@@ -130,7 +130,7 @@ function birthdateCheck()
 // Nombre de concours --> Valeur numérique
 let validRegexNumber = /^\d+$/; // ^ = début du code; \d = tous les chiffres de 0 à 9; + = autant qu'on veut; $ = fin du code
 let quantityId = document.getElementById("quantityId"); // input id
-let nbrWrong = document.getElementById("nbrWrong"); // p id
+let nbrWrong = document.getElementById("nbr-wrong"); // p id
 nbrWrong.innerHTML = '';
 quantityId.addEventListener("change", quantityCheck, true);
 
@@ -166,7 +166,7 @@ function radioButtonsCheck()
   locationArray.unshift(ville3);
   locationArray.unshift(ville2);
   locationArray.unshift(ville1);
-  let locationWrong = document.getElementById("locationWrong"); // id p
+  let locationWrong = document.getElementById("location-wrong"); // id p
   locationWrong.innerHTML = '';
   console.log(locationArray);
   for(const location of locationArray)
