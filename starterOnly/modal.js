@@ -27,7 +27,7 @@ function launchModal()
   modalbg.style.display = "block";
 }
 
-// Fermeture de la modale via le btn "X"
+// Fermeture de la modale via le btn "X" / Issue#1 : fermer la modale.
 // Close  modal form
 modalCloseBtn.forEach((btn) => btn.addEventListener("click", closeModal)); // Ferme la modale tout en laissant l'opportunité de la relancer
 
@@ -37,6 +37,8 @@ function closeModal() // Fermeture modal
   modalbg.style.display = "none";
 }
 
+// Issues#2 : Implémenter entrées du formulaire.
+// Issues#3 : Ajouter validation ou messages d'erreur.
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
 let firstName = document.getElementById("first"); // input id
@@ -183,7 +185,7 @@ function radioButtonsCheck()
 }
 
 // Exercice 6
-// Condition générales cochés de facto. L'autre case peut-être délaissée.
+// Condition générales cochés de-facto. L'autre case peut-être délaissée.
 function checkboxBtnCheck()
 {
   let checkBoxData = document.getElementById("checkbox1");
