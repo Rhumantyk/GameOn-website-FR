@@ -38,7 +38,7 @@ function closeModal() // Fermeture modal
 }
 
 // Variable erreurs
-let errorColor = "inset 0 0 0 3px red"; // Liseré rouge dans input (laissant du blanc entre l'input et ce liseré, sans la variable "errorBorder")
+let errorColor = "inset 0 0 0 3px #e54858"; // Liseré rouge dans input (laissant du blanc entre l'input et ce liseré, sans la variable "errorBorder")
 let errorBorder = "none" // Empêche le liseré blanc entre errorColor et l'input.
 
 // Issues#2 : Implémenter entrées du formulaire.
