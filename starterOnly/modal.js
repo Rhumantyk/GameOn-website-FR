@@ -45,7 +45,7 @@ let errorBorder = "none" // Empêche le liseré blanc entre errorColor et l'inpu
 // Issues#3 : Ajouter validation ou messages d'erreur.
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
-let firstName = document.getElementById("first"); // input idvar
+let firstName = document.getElementById("first"); // input id
 let firstWrong = document.getElementById("first-wrong"); // p id
 firstWrong.innerHTML = '';
 firstName.addEventListener("change", firstNameCheck, true);
