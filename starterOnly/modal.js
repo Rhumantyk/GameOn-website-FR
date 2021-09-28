@@ -103,13 +103,16 @@ function emailCheck()
 {
   if(email.value.match(validRegex)) // input id
   {
-    email.style.backgroundColor = "white";
+    email.style.boxShadow = null; // Cf. Variable erreurs errorColor.
+    email.style.border = null; // Cf. Variable erreurs errorBorder.
     emailWrong.innerHTML = '';
     return true;
   }
   else
   {
-    email.style.backgroundColor = "red";
+    email.style.boxShadow = errorColor; // Cf. Variable erreurs errorColor.
+    email.style.border = errorBorder; // Cf. Variable erreurs errorBorder.
+    email.style.backgroundColor = "white";
     emailWrong.innerHTML = "Adresse email invalide </br> Exemple : email@exemple.com";
     return false;
   }
