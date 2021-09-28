@@ -129,13 +129,16 @@ function birthdateCheck()
 {
   if(birthdayId.value.match(regexBirthday))
   {
-    birthdayId.style.backgroundColor = "white";
+    birthdayId.style.boxShadow = null; // Cf. Variable erreurs errorColor.
+    birthdayId.style.border = null; // Cf. Variable erreurs errorBorder.
     birthdateWrong.innerHTML = '';
     return true;
   }
   else
   {
-    birthdayId.style.backgroundColor = "red";
+    birthdayId.style.boxShadow = errorColor; // Cf. Variable erreurs errorColor.
+    birthdayId.style.border = errorBorder; // Cf. Variable erreurs errorBorder.
+    birthdayId.style.backgroundColor = "white";
     birthdateWrong.innerHTML = "Vous devez entrer votre date de naissance";
     return false;
   }
