@@ -40,12 +40,11 @@ function closeModal() // Fermeture modal
 // Variable erreurs
 let errorColor = "inset 0 0 0 3px #e54858"; // Liseré rouge dans input (laissant du blanc entre l'input et ce liseré, sans la variable "errorBorder")
 let errorBorder = "none" // Empêche le liseré blanc entre errorColor et l'input.
-
 // Issues#2 : Implémenter entrées du formulaire.
 // Issues#3 : Ajouter validation ou messages d'erreur.
 // Prénom : Minimum de 2 caractères + n'est pas vide
 // Source : https://stackoverflow.com/Questions/256754/how-to-pass-arguments-to-addeventlistener-listener-function
-let firstName = document.getElementById("first"); // input id
+let firstName = document.getElementById("first"); // input idvar
 let firstWrong = document.getElementById("first-wrong"); // p id
 firstWrong.innerHTML = '';
 firstName.addEventListener("change", firstNameCheck, true);
@@ -79,11 +78,14 @@ function lastNameCheck()
 {
   if(last.value.length < 2)
   {
-    lastName.style.backgroundColor = "red";
+    lastName.style.boxShadow = errorColor; // Cf. Variable erreurs errorColor.
+    lastName.style.border = errorBorder; // Cf. Variable erreurs errorBorder.
     lastWrong.innerHTML = "2 caractères minimum sont requis";
   }
   else
   {
+    lastName.style.boxShadow = null; // Cf. Variable erreurs errorColor.
+    lastName.style.border = null; // Cf. Variable erreurs errorBorder.
     lastName.style.backgroundColor = "white";
     lastWrong.innerHTML = '';
     return true;
