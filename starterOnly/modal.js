@@ -37,6 +37,9 @@ function closeModal() // Fermeture modal
   modalbg.style.display = "none";
 }
 
+// Variable error color
+let errorColor = "inset 0 0 0 3px red";
+
 // Issues#2 : Implémenter entrées du formulaire.
 // Issues#3 : Ajouter validation ou messages d'erreur.
 // Prénom : Minimum de 2 caractères + n'est pas vide
@@ -50,7 +53,7 @@ function firstNameCheck()
 {
   if(first.value.length < 2)
   {
-    firstName.style.backgroundColor = "red";
+    firstName.style.boxShadow = errorColor;
     firstWrong.innerHTML = "2 caractères minimum sont requis";
     return false;
   }
