@@ -37,8 +37,9 @@ function closeModal() // Fermeture modal
   modalbg.style.display = "none";
 }
 
-// Variable error color
-let errorColor = "inset 0 0 0 3px red";
+// Variable erreurs
+let errorColor = "inset 0 0 0 3px red"; // Liseré rouge dans input (laissant du blanc entre l'input et ce liseré, sans "insérer l'autre variable")
+let errorBorder = "none" // Empêche le liseré blanc entre errorColor et l'input.
 
 // Issues#2 : Implémenter entrées du formulaire.
 // Issues#3 : Ajouter validation ou messages d'erreur.
@@ -53,12 +54,15 @@ function firstNameCheck()
 {
   if(first.value.length < 2)
   {
-    firstName.style.boxShadow = errorColor;
+    firstName.style.boxShadow = errorColor; // Cf. Variable erreurs errorColor.
+    firstName.style.border = errorBorder; // Cf. Variable erreurs errorBorder.
     firstWrong.innerHTML = "2 caractères minimum sont requis";
     return false;
   }
   else
   {
+    firstName.style.boxShadow = null; // Cf. Variable erreurs errorColor.
+    firstName.style.border = null; // Cf. Variable erreurs errorBorder.
     firstName.style.backgroundColor = "white";
     firstWrong.innerHTML = '';
     return true;
