@@ -155,13 +155,16 @@ function quantityCheck()
 {
   if(quantityId.value.match(validRegexNumber)) // input id
   {
-    quantityId.style.backgroundColor = "white";
+    quantityId.style.boxShadow = null; // Cf. Variable erreurs errorColor.
+    quantityId.style.border = null; // Cf. Variable erreurs errorBorder.
     nbrWrong.innerHTML = '';
     return true;
   }
   else
   {
-    quantityId.style.backgroundColor = "red";
+    quantityId.style.boxShadow = errorColor; // Cf. Variable erreurs errorColor.
+    quantityId.style.border = errorBorder; // Cf. Variable erreurs errorBorder.
+    quantityId.style.backgroundColor = "white";
     nbrWrong.innerHTML = "Incorrect, veuillez insérer un chiffre/nombre";
     return false;
   }
